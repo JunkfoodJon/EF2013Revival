@@ -1,0 +1,5 @@
+# Only the built page and README are published; everything else stays local.
+/*
+!/index.html
+!/README.md
+!/.gitignore
