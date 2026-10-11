@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Missing Tracks · Electric Forest Revival</title>
+<meta name="description" content="Tracks listeners remember from Electric Forest 2013 and 2014 that aren't in the reconstructed tracklists yet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  color-scheme:dark;
+  --bg:#05060d; --bg2:#0a0f1c; --panel:rgba(14,20,38,.72); --panel-solid:#0e1426;
+  --line:rgba(150,170,255,.14); --text:#e9ecff; --muted:#9aa3c7; --dim:#6b7398;
+  --lime:#b6ff3b; --cyan:#3ef2ff; --magenta:#ff3fd8; --violet:#9b6bff; --amber:#ffb23e; --pink:#ff6b9d;
+  --spotify:#1ed760; --yt:#ff3d3d;
+  --s-ranch:#ffb23e; --s-sherwood:#3dffa0; --s-tripolee:#ff74ea; --s-forest:#3ef2ff; --s-obs:#9b8bff; --s-silent:#ff7eb6; --s-other:#c0c8ee;
+  --t-confirmed:#3dffa0; --t-identified:#3ef2ff; --t-tour:#ffb23e; --t-era:#b08bff;
+  --r:14px; --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Quicksand,system-ui,sans-serif;font-size:15px;line-height:1.45;overflow-x:hidden}
+a{color:inherit}
+::selection{background:var(--magenta);color:#000}
+
+/* ---------- ambient background ---------- */
+#sky{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(1200px 700px at 15% -10%,rgba(155,107,255,.28),transparent 60%),
+  radial-gradient(900px 600px at 95% 10%,rgba(255,63,216,.18),transparent 60%),
+  radial-gradient(1000px 800px at 50% 120%,rgba(61,255,160,.16),transparent 60%),
+  linear-gradient(180deg,#070818 0%,#05060d 55%,#03140f 100%)}
+#sky::after{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg at 50% 50%,rgba(62,242,255,.05),rgba(255,63,216,.06),rgba(182,255,59,.05),rgba(155,107,255,.06),rgba(62,242,255,.05));animation:spin 60s linear infinite;filter:blur(40px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+#flies{position:fixed;inset:0;z-index:-1;pointer-events:none}
+
+/* ---------- hero ---------- */
+header.hero{position:relative;min-height:440px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:56px 16px 150px;overflow:hidden}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--lime);text-shadow:0 0 12px rgba(182,255,59,.6)}
+h1.logo{font-family:Monoton,cursive;font-weight:400;font-size:clamp(40px,9vw,112px);line-height:1;margin:.25em 0 .1em;letter-spacing:.04em;
+  background:linear-gradient(90deg,var(--cyan),var(--lime),var(--amber),var(--magenta),var(--violet),var(--cyan));background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 12s linear infinite;
+  filter:drop-shadow(0 0 18px rgba(255,63,216,.45)) drop-shadow(0 0 40px rgba(62,242,255,.25))}
+@keyframes shimmer{to{background-position:300% 0}}
+.year{font-family:Monoton,cursive;font-size:clamp(28px,5vw,54px);color:#fff;text-shadow:0 0 8px #fff,0 0 22px var(--magenta),0 0 44px var(--violet);animation:flicker 7s infinite}
+@keyframes flicker{0%,93%,100%{opacity:1}94%{opacity:.4}95%{opacity:1}97%{opacity:.6}}
+.tag{max-width:640px;color:var(--muted);margin:14px auto 0;font-size:16px}
+.tag b{color:var(--text)}
+.treeline{position:absolute;left:0;right:0;bottom:0;height:170px;pointer-events:none}
+.stats{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+.stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted);backdrop-filter:blur(6px)}
+.stat b{color:var(--text);font-family:var(--mono);margin-right:4px}
+
+
+
+/* ---------- playlists + verification ---------- */
+.pl-wrap{position:relative;display:inline-block}
+.slot:has(.pl-pop),.set:has(.pl-pop){z-index:40}
+.set:has(.pl-pop){position:relative}
+.pl-pop.up{top:auto;bottom:calc(100% + 6px)}
+.pl-pop{position:absolute;z-index:30;top:calc(100% + 6px);left:0;width:min(380px,86vw)}
+.drawer .pl-pop{top:auto;bottom:calc(100% + 6px)}
+.pl-menu{background:var(--panel-solid);border:1px solid rgba(255,63,216,.45);border-radius:14px;padding:8px;box-shadow:0 18px 60px rgba(0,0,0,.6),0 0 24px rgba(255,63,216,.2);display:flex;flex-direction:column;gap:2px}
+.pl-menu .pl-head{font-size:12px;color:var(--muted);padding:4px 8px 8px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.pl-menu .pl-a{all:unset;cursor:pointer;padding:8px 10px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--text);display:flex;flex-direction:column;gap:1px}
+.pl-menu .pl-a small{font-weight:400;font-size:11.5px;color:var(--dim)}
+.pl-menu .pl-a:hover{background:rgba(255,255,255,.06)}
+.pl-menu button{all:unset;cursor:pointer;padding:8px 10px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--text);display:flex;flex-direction:column;gap:1px}
+.pl-menu button small{font-weight:400;font-size:11.5px;color:var(--dim)}
+.pl-menu button:hover{background:rgba(255,255,255,.06)}
+.pl-menu button[disabled]{opacity:.4;cursor:not-allowed}
+.pl-menu .pl-set{color:var(--cyan);font-weight:500;font-size:12.5px;border-top:1px solid var(--line);border-radius:0 0 9px 9px;margin-top:4px}
+.pl-menu .pl-note{font-size:12.5px;color:var(--dim);padding:6px 10px}
+#plProg{position:fixed;right:16px;bottom:16px;z-index:61;background:var(--panel-solid);border:1px solid var(--cyan);color:var(--text);padding:10px 14px;border-radius:12px;font-size:13px;box-shadow:0 0 24px rgba(62,242,255,.25);transform:translateY(120%);opacity:0;transition:.25s}
+#plProg.show{transform:none;opacity:1}
+dialog#plSettings{background:var(--panel-solid);color:var(--text);border:1px solid var(--line);border-radius:16px;max-width:620px;width:calc(100% - 32px);padding:20px 22px;box-shadow:0 30px 90px rgba(0,0,0,.7)}
+dialog#plSettings::backdrop{background:rgba(3,4,10,.7);backdrop-filter:blur(4px)}
+dialog#plSettings h4{margin:0 0 4px;font-family:Monoton,cursive;font-weight:400;font-size:22px;text-shadow:0 0 12px var(--magenta)}
+dialog#plSettings h5{margin:16px 0 6px;font-size:14px}
+dialog#plSettings p,dialog#plSettings li{font-size:13px;color:var(--muted);line-height:1.5}
+dialog#plSettings ol{padding-left:18px;margin:4px 0}
+dialog#plSettings code{font-family:var(--mono);font-size:12px;background:rgba(255,255,255,.07);padding:1px 6px;border-radius:6px;color:var(--lime);user-select:all}
+dialog#plSettings input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:8px 10px;font:inherit;font-size:13px;margin-top:4px}
+dialog#plSettings .row{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+dialog#plSettings .warn{border:1px solid rgba(255,178,62,.5);color:var(--amber);border-radius:10px;padding:8px 10px;font-size:12.5px;margin-top:8px}
+.vchk{display:inline-flex;gap:4px;align-items:center;font-family:var(--mono);font-size:11px;color:var(--dim);margin-left:8px;white-space:nowrap;cursor:help}
+.vchk i{font-style:normal;font-weight:700}
+.vchk.ok i{color:var(--t-confirmed)}
+.vchk.warn i{color:var(--amber)}
+
+
+/* ---------- suggestions (add missing tracks) ---------- */
+.rpt-chip{font-size:11px;font-family:var(--mono);color:var(--lime);border:1px dashed rgba(182,255,59,.5);border-radius:999px;padding:2px 8px;white-space:nowrap}
+.btn.sug{border-style:dashed;border-color:rgba(182,255,59,.55);color:var(--lime)}
+.btn.sug:hover{box-shadow:0 0 12px rgba(182,255,59,.3)}
+dialog.rpt{background:var(--panel-solid);color:var(--text);border:1px solid var(--line);border-radius:18px;max-width:640px;width:calc(100% - 32px);max-height:calc(100dvh - 32px);padding:0;box-shadow:0 30px 90px rgba(0,0,0,.7),0 0 0 1px color-mix(in srgb,var(--sc,var(--lime)) 25%,transparent);overflow:hidden}
+dialog.rpt[open]{display:flex;flex-direction:column}
+dialog.rpt::backdrop{background:rgba(3,4,10,.72);backdrop-filter:blur(4px)}
+.rpt-f{display:flex;flex-direction:column;min-height:0;flex:1}
+.rpt-card{padding:18px 22px 14px;border-bottom:1px solid var(--line);border-left:4px solid var(--sc,var(--lime));background:radial-gradient(600px 160px at 0 0,color-mix(in srgb,var(--sc,var(--lime)) 22%,transparent),transparent 70%)}
+.rpt-eye{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--lime)}
+.rpt-card h4{margin:6px 0 4px;font-family:Quicksand,system-ui,sans-serif;font-weight:700;font-size:24px;letter-spacing:.01em;text-wrap:balance;text-shadow:0 0 18px color-mix(in srgb,var(--sc,var(--lime)) 60%,transparent)}
+.rpt-meta{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:12.5px;color:var(--muted)}
+.rpt-stage{color:var(--sc);font-weight:700;border:1px solid color-mix(in srgb,var(--sc) 55%,transparent);background:color-mix(in srgb,var(--sc) 14%,transparent);border-radius:999px;padding:2px 10px;box-shadow:0 0 10px color-mix(in srgb,var(--sc) 30%,transparent)}
+.rpt-yr{font-family:var(--mono);color:var(--text)}
+.rpt-meta .genre{font-style:italic}
+#rptHave{margin-top:10px;font-size:12.5px}
+#rptHave summary{cursor:pointer;color:var(--cyan);width:max-content}
+#rptHave ol{margin:6px 0 0;padding-left:22px;max-height:150px;overflow:auto;color:var(--muted)}
+#rptHave li{padding:1px 0} #rptHave li span{color:var(--text)}
+#rptHave .tier{font-style:normal;font-size:9.5px;padding:0 5px;margin-left:4px;vertical-align:1px}
+.rpt-body{padding:6px 22px 4px;overflow:auto;min-height:0;flex:1}
+dialog.rpt label{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--muted);margin-top:12px;min-width:0}
+dialog.rpt .lbl{display:flex;gap:8px;align-items:baseline} dialog.rpt .lbl em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--lime)}
+dialog.rpt .hint{font-size:11.5px;color:var(--dim)} dialog.rpt .opt{font-size:11px;color:var(--dim)}
+dialog.rpt code{font-family:var(--mono);font-size:11px;background:rgba(255,255,255,.07);padding:1px 5px;border-radius:5px;color:var(--lime)}
+dialog.rpt input,dialog.rpt select,dialog.rpt textarea{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:9px 11px;font:inherit;font-size:13.5px;width:100%;min-width:0}
+dialog.rpt select option{background:var(--panel-solid);color:var(--text)}
+dialog.rpt input:focus,dialog.rpt select:focus,dialog.rpt textarea:focus{outline:none;border-color:var(--sc,var(--cyan));box-shadow:0 0 0 3px color-mix(in srgb,var(--sc,var(--cyan)) 22%,transparent)}
+dialog.rpt textarea{resize:vertical;font-family:var(--mono);font-size:12.5px;line-height:1.5}
+#rptMsg{font-family:inherit;font-size:13.5px}
+dialog.rpt .two{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+dialog.rpt .mode{font-size:12.5px;color:var(--dim);margin:14px 0 0}
+dialog.rpt .err{color:var(--amber);font-size:13px;min-height:1.2em;margin:6px 0 0}
+dialog.rpt .row{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;padding:12px 22px 16px;border-top:1px solid var(--line)}
+dialog.rpt .btn:focus-visible,dialog.rpt summary:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+#rptPanel{max-width:860px}
+#rptPanel .rv-top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 12px}
+#rptPanel .rv-top span{font-size:12.5px;color:var(--muted);margin-right:auto}
+#rvList{max-height:62vh;overflow:auto;padding-right:4px}
+#rvList h6{margin:14px 0 6px;font-size:14px;color:var(--text)} #rvList h6 span{color:var(--dim);font-weight:400;font-size:12px}
+.rv-item{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px;font-size:13px}
+.rv-meta{color:var(--muted);font-size:12px} .rv-meta a{color:var(--cyan)}
+.rv-item ol{margin:6px 0;padding-left:20px} .rv-pos{font-family:var(--mono);color:var(--dim)}
+.rv-item p{margin:6px 0;color:var(--muted)}
+.rv-act{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.rv-act input{flex:1 1 180px}
+.rv-empty{color:var(--dim);font-size:13px}
+#plProg .x{all:unset;cursor:pointer;margin-left:10px;color:var(--muted)}
+#plProg a{color:var(--cyan)}
+@media (max-width:720px){ dialog.rpt .two{grid-template-columns:1fr} dialog.rpt{width:calc(100% - 16px);max-height:calc(100dvh - 16px)} .rpt-card,.rpt-body{padding-left:16px;padding-right:16px} dialog.rpt .row{padding:10px 16px 12px} dialog.rpt .row .btn{flex:1 1 auto;justify-content:center} }
+
+/* ---------- year switch ---------- */
+.yearsw{display:flex;gap:10px;justify-content:center;margin-top:18px}
+.yearsw button{all:unset;cursor:pointer;font-family:Monoton,cursive;font-size:clamp(20px,3.4vw,30px);letter-spacing:.08em;padding:8px 22px 6px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:rgba(255,255,255,.03);transition:.25s}
+.yearsw button:hover{color:var(--text);border-color:var(--cyan)}
+.yearsw button[aria-pressed=true]{color:#fff;border-color:transparent;background:linear-gradient(90deg,var(--violet),var(--magenta),var(--amber));box-shadow:0 0 22px rgba(255,63,216,.5),0 0 60px rgba(155,107,255,.3);text-shadow:0 0 8px rgba(255,255,255,.6)}
+.yrs button[aria-pressed=true]{background:linear-gradient(90deg,var(--amber),var(--magenta))}
+body[data-year="2014"] #sky{background:
+  radial-gradient(1100px 650px at 80% -10%,rgba(255,120,60,.26),transparent 60%),
+  radial-gradient(900px 600px at 10% 5%,rgba(255,63,160,.2),transparent 60%),
+  radial-gradient(1000px 800px at 50% 120%,rgba(62,242,200,.16),transparent 60%),
+  linear-gradient(180deg,#140a1c 0%,#06060e 55%,#03140f 100%)}
+
+/* ---------- controls ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:linear-gradient(180deg,rgba(5,6,13,.94),rgba(5,6,13,.82));backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.days{display:flex;gap:4px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:3px}
+.days button{all:unset;cursor:pointer;padding:6px 13px;border-radius:999px;font-weight:600;font-size:13px;color:var(--muted);transition:.2s}
+.days button:hover{color:var(--text)}
+.days button[aria-pressed=true]{background:linear-gradient(90deg,var(--violet),var(--magenta));color:#fff;box-shadow:0 0 16px rgba(255,63,216,.45)}
+.search{flex:1 1 220px;min-width:180px;position:relative}
+.search input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;color:var(--text);padding:8px 14px 8px 34px;font:inherit;font-size:14px;outline:none;transition:.2s}
+.search input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(62,242,255,.15)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.6}
+.btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);transition:.15s;white-space:nowrap}
+.btn:hover{border-color:var(--cyan);box-shadow:0 0 12px rgba(62,242,255,.25)}
+.btn.hot{border-color:rgba(255,63,216,.6)}
+.btn .n{font-family:var(--mono);background:var(--magenta);color:#000;border-radius:999px;padding:0 6px;font-size:11px}
+.chips{max-width:1180px;margin:0 auto;padding:0 16px 10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip{all:unset;cursor:pointer;font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 55%,transparent);color:var(--c);opacity:.45;transition:.15s;user-select:none}
+.chip[aria-pressed=true]{opacity:1;background:color-mix(in srgb,var(--c) 14%,transparent);box-shadow:0 0 10px color-mix(in srgb,var(--c) 35%,transparent)}
+.chips .sep{width:1px;height:18px;background:var(--line);margin:0 4px}
+.chips label{font-size:12px;color:var(--muted);display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.chips input[type=checkbox]{accent-color:var(--magenta)}
+
+/* ---------- main timeline ---------- */
+main{max-width:1180px;margin:0 auto;padding:26px 16px 80px}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:0 0 28px}
+.legend div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;color:var(--muted)}
+.legend b{display:block;color:var(--text);margin-bottom:2px}
+.day{margin:34px 0 10px}
+.day-h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 0 16px;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+.day-h h2{margin:0;font-family:Monoton,cursive;font-weight:400;font-size:clamp(26px,4vw,40px);letter-spacing:.06em;color:#fff;text-shadow:0 0 14px var(--dc),0 0 34px var(--dc)}
+.day-h .sub{color:var(--muted);font-size:14px}
+.timeline{position:relative;padding-left:84px}
+.timeline::before{content:"";position:absolute;left:66px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,transparent,var(--dc),transparent);opacity:.5}
+.slot{position:relative;margin:0 0 12px}
+.slot .when{position:absolute;left:-84px;top:13px;width:58px;text-align:right;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.slot::before{content:"";position:absolute;left:-23px;top:17px;width:10px;height:10px;border-radius:50%;background:var(--sc);box-shadow:0 0 10px var(--sc),0 0 22px var(--sc)}
+.set{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--sc);border-radius:var(--r);backdrop-filter:blur(8px);transition:border-color .2s, box-shadow .2s;overflow:hidden}
+.set:hover{box-shadow:0 0 0 1px color-mix(in srgb,var(--sc) 40%,transparent),0 8px 40px -12px color-mix(in srgb,var(--sc) 55%,transparent)}
+.set-h{display:grid;grid-template-columns:1fr auto;gap:6px 14px;padding:12px 14px;cursor:pointer;align-items:center}
+.set-h h3{margin:0;font-size:19px;font-weight:700;letter-spacing:.01em}
+.meta{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;color:var(--muted);margin-top:3px}
+.stage{color:var(--sc);font-weight:600}
+.genre{font-style:italic}
+.right{display:flex;align-items:center;gap:10px}
+.cov{display:flex;height:6px;width:90px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.07)}
+.cov i{display:block;height:100%}
+.count{font-family:var(--mono);font-size:12px;color:var(--muted);min-width:62px;text-align:right}
+.chev{transition:transform .25s;opacity:.7}
+.set.open .chev{transform:rotate(180deg)}
+.set-b{display:none;border-top:1px solid var(--line)}
+.set.open .set-b{display:block;animation:fade .25s ease}
+.set.open{overflow:visible}
+@keyframes fade{from{opacity:0;transform:translateY(-4px)}}
+.note{padding:10px 14px 0;font-size:13.5px;color:var(--muted)}
+.note a{color:var(--cyan)}
+.recs{padding:8px 14px 0;display:flex;flex-wrap:wrap;gap:6px}
+.rec{font-size:12px;text-decoration:none;padding:4px 10px;border-radius:999px;border:1px solid rgba(182,255,59,.45);color:var(--lime)}
+.rec:hover{background:rgba(182,255,59,.1)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);text-align:left;font-weight:600;padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl td{padding:7px 8px;border-bottom:1px solid rgba(150,170,255,.07);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tbody tr{transition:background .15s}
+.tbl tbody tr:hover{background:rgba(255,255,255,.035)}
+.tbl .num{font-family:var(--mono);color:var(--dim);width:34px;text-align:right}
+.tbl .ta{color:var(--muted);user-select:all}
+.tbl .tt{font-weight:600;user-select:all}
+.tbl .act{white-space:nowrap;text-align:right;width:1%}
+.tier{display:inline-block;font-size:10.5px;font-family:var(--mono);padding:2px 7px;border-radius:999px;border:1px solid var(--tc);color:var(--tc);white-space:nowrap}
+.tier[data-t=confirmed]{--tc:var(--t-confirmed)} .tier[data-t=identified]{--tc:var(--t-identified)} .tier[data-t=tour]{--tc:var(--t-tour)} .tier[data-t=era]{--tc:var(--t-era)}
+.src{font-size:11px;color:var(--dim);text-decoration:none;margin-left:6px}
+.src:hover{color:var(--cyan)}
+.listen{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;text-decoration:none;padding:4px 10px;border-radius:999px;border:1px solid;transition:.15s}
+.listen.sp{color:var(--spotify);border-color:color-mix(in srgb,var(--spotify) 55%,transparent)}
+.listen.sp:hover{background:var(--spotify);color:#000}
+.listen.yt{color:var(--yt);border-color:color-mix(in srgb,var(--yt) 55%,transparent)}
+.listen.yt:hover{background:var(--yt);color:#fff}
+.listen.q{color:var(--muted);border-color:var(--line);font-weight:600}
+.listen.q:hover{color:var(--text);border-color:var(--cyan)}
+.ib{all:unset;cursor:pointer;width:26px;height:26px;display:inline-grid;place-items:center;border-radius:8px;color:var(--muted);transition:.15s;vertical-align:middle}
+.ib:hover{color:var(--text);background:rgba(255,255,255,.08)}
+.ib.on{color:var(--magenta);text-shadow:0 0 8px var(--magenta)}
+.empty{padding:12px 14px;color:var(--dim);font-size:13.5px;font-style:italic}
+.mini{display:flex;gap:10px;align-items:baseline;padding:4px 12px;border-radius:10px;font-size:13.5px;color:var(--muted);background:rgba(255,255,255,.02);border:1px dashed rgba(150,170,255,.1)}
+.mini b{color:var(--text);font-weight:600}
+.mini .stage{font-size:12px}
+.none{text-align:center;color:var(--muted);padding:60px 0}
+
+/* ---------- mix drawer & toast ---------- */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);z-index:40;background:var(--panel-solid);border-left:1px solid var(--line);box-shadow:-20px 0 60px rgba(0,0,0,.6);transform:translateX(105%);transition:transform .3s ease;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer h4{margin:0;padding:16px;font-family:Monoton,cursive;font-weight:400;font-size:22px;color:#fff;text-shadow:0 0 12px var(--magenta);display:flex;justify-content:space-between;align-items:center}
+.drawer ol{flex:1;overflow:auto;margin:0;padding:0 16px 0 40px;font-size:14px}
+.drawer li{padding:6px 0;border-bottom:1px solid rgba(150,170,255,.08)}
+.drawer li small{display:block;color:var(--dim);font-size:11.5px}
+.drawer .foot{padding:12px 16px;display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);opacity:0;z-index:60;background:linear-gradient(90deg,var(--violet),var(--magenta));color:#fff;padding:9px 16px;border-radius:999px;font-weight:700;font-size:13.5px;box-shadow:0 8px 30px rgba(255,63,216,.45);transition:.25s;pointer-events:none}
+.toast.show{transform:translate(-50%,0);opacity:1}
+footer{max-width:1180px;margin:0 auto;padding:30px 16px 60px;color:var(--dim);font-size:13px;border-top:1px solid var(--line)}
+footer h5{color:var(--muted);font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin:18px 0 8px}
+footer .srcs{columns:2 280px;gap:24px}
+footer .srcs a{display:block;color:var(--muted);text-decoration:none;font-size:12.5px;padding:2px 0;break-inside:avoid;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+footer .srcs a:hover{color:var(--cyan)}
+
+@media (max-width:720px){
+  .pl-pop{position:fixed;left:12px;right:12px;bottom:12px;top:auto!important;width:auto;z-index:70}
+  .pl-menu{max-height:70vh;overflow:auto}
+  .vchk{margin-left:0;display:flex;margin-top:3px}
+  .bar-in{gap:6px;padding:8px 12px}
+  .bar-in .btn{padding:6px 10px;font-size:12px}
+  .days button{padding:5px 10px}
+  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:0 12px 8px;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent)}
+  .chips::-webkit-scrollbar{display:none}
+  .chip,.chips label{flex:none;white-space:nowrap}
+  .timeline{padding-left:22px}
+  .timeline::before{left:6px}
+  .slot::before{left:-21px}
+  .slot .when{position:static;display:block;text-align:left;width:auto;margin:0 0 4px}
+  .set-h{grid-template-columns:1fr}
+  .right{justify-content:space-between}
+  .tbl .ta{display:block;font-size:12.5px}
+  .tbl thead{display:none}
+  .tbl tr{display:grid;grid-template-columns:28px 1fr auto;gap:2px 8px;padding:8px;border-bottom:1px solid rgba(150,170,255,.07)}
+  .tbl td{border:0;padding:0}
+  .tbl .num{grid-row:span 3;text-align:left}
+  .tbl .tier-c{grid-column:2}
+  .tbl .act{grid-column:3;text-align:right}
+  .tbl .tier-c{align-self:center}
+  .tbl .tt{grid-column:2 / 4}
+  .tbl .ta{grid-column:2 / 4}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- Missing Tracks page ---------- */
+.mt-hero{position:relative;text-align:center;padding:42px 16px 26px}
+.mt-hero h1{font-family:Monoton,cursive;font-weight:400;font-size:clamp(34px,7vw,76px);line-height:1;margin:.2em 0 .15em;letter-spacing:.04em;
+  background:linear-gradient(90deg,var(--lime),var(--cyan),var(--magenta),var(--amber),var(--lime));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 14s linear infinite;filter:drop-shadow(0 0 16px rgba(182,255,59,.35))}
+.mt-hero p{max-width:640px;margin:8px auto 0;color:var(--muted)}
+.mt-back{position:absolute;left:16px;top:16px}
+.mt-stats{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.mt-status{display:inline-block;font-family:var(--mono);font-size:10.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--c);color:var(--c);white-space:nowrap}
+.mt-status[data-s=new]{--c:var(--cyan)} .mt-status[data-s=accepted]{--c:var(--t-confirmed)} .mt-status[data-s=merged]{--c:var(--violet)} .mt-status[data-s=rejected]{--c:var(--dim)}
+.mt-rep{border-top:1px solid var(--line);padding:12px 14px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
+.mt-rep:first-of-type{border-top:0}
+.mt-who{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--muted);grid-column:1 / -1;flex-wrap:wrap}
+.mt-who img{width:20px;height:20px;border-radius:50%;background:var(--panel-solid)}
+.mt-who b{color:var(--text);font-weight:600}
+.mt-who a{color:var(--cyan);text-decoration:none} .mt-who a:hover{text-decoration:underline}
+.mt-tracks{grid-column:1 / -1;margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px}
+.mt-tracks li{display:grid;grid-template-columns:40px 1fr;gap:8px;font-size:14px}
+.mt-tracks .p{font-family:var(--mono);color:var(--dim);text-align:right;font-size:12px;padding-top:2px}
+.mt-tracks .a{color:var(--muted)} .mt-tracks .t{font-weight:600}
+.mt-note{grid-column:1 / -1;margin:4px 0 0;color:var(--muted);font-size:13.5px}
+.mt-tools{grid-column:1 / -1;display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.mt-msg{text-align:center;color:var(--muted);padding:50px 16px}
+.mt-msg b{color:var(--text)}
+.mt-unmatched .set{--sc:var(--s-other)}
+@media (max-width:720px){ .mt-back{position:static;display:inline-flex;margin-bottom:6px} .mt-hero{padding-top:20px} }
+</style>
+</head>
+<body>
+<div id="sky"></div>
+<header class="mt-hero">
+  <a class="btn mt-back" href="index.html" id="backLink">← Tracklists</a>
+  <div class="kicker">Electric Forest Revival · listener reports</div>
+  <h1>Missing Tracks</h1>
+  <p>Tracks people remember hearing that aren't in the tracklists yet. Each one is filed under its set and reviewed before it's added.</p>
+  <div class="mt-stats" id="stats"></div>
+</header>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="days" role="group" aria-label="Year" id="years"></div>
+    <div class="days" role="group" aria-label="Status" id="status"></div>
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search artists or tracks…" autocomplete="off">
+    </div>
+    <button class="btn" id="refresh">Refresh</button>
+    <a class="btn sug" id="newReport" href="index.html">+ Report a missing track</a>
+  </div>
+</div>
+
+<main><div id="list"><div class="mt-msg">Loading reports from GitHub…</div></div></main>
+<div class="toast" id="toast"></div>
+<footer>
+  <h5>How this works</h5>
+  <p>Reports are GitHub issues on <a id="repoLink" style="color:var(--cyan)"></a>, sent with the <b>+ Add missing tracks</b> button on any set. Status follows the issue: open is <b>New</b>, the <code>accepted</code> label is <b>Accepted</b>, closed as completed is <b>Merged</b> into the tracklists, closed as not planned (or labelled wontfix / invalid / duplicate) is <b>Rejected</b>. This page reads GitHub's public API, which allows about 60 loads an hour per visitor, so results are cached for a few minutes.</p>
+</footer>
+
+<script type="application/json" id="sets">{"2013":{"2013|Thu|Tripolee|Helicopter Showdown":{"artist":"Helicopter Showdown","day":"Thu","stage":"Tripolee","start":"5:15pm","end":"6:15pm","genre":"dubstep / trap","n":0},"2013|Thu|Tripolee|A Tribe Called Red":{"artist":"A Tribe Called Red","day":"Thu","stage":"Tripolee","start":"6:30pm","end":"7:30pm","genre":"powwow-step / electronic powwow","n":2},"2013|Thu|Ranch Arena|SuckerPunch (ft. Marc Brownstein & Aron Magner of The Disco Biscuits, Jamie Shields of The New Deal, Mike Greenfield of Lotus)":{"artist":"SuckerPunch (ft. Marc Brownstein & Aron Magner of The Disco Biscuits, Jamie Shields of The New Deal, Mike Greenfield of Lotus)","day":"Thu","stage":"Ranch Arena","start":"6:45pm","end":"8:00pm","genre":"livetronica / electro-jam supergroup","n":2},"2013|Thu|Tripolee|Eelrack":{"artist":"Eelrack","day":"Thu","stage":"Tripolee","start":"7:45pm","end":"8:45pm","genre":"electro / bass","n":0},"2013|Thu|Ranch Arena|Morgan Page":{"artist":"Morgan Page","day":"Thu","stage":"Ranch Arena","start":"8:30pm","end":"9:45pm","genre":"progressive house / electro house","n":12},"2013|Thu|Sherwood Court|Digital Tape Machine":{"artist":"Digital Tape Machine","day":"Thu","stage":"Sherwood Court","start":"9:00pm","end":"10:15pm","genre":"livetronica / jam (Umphrey's McGee side project)","n":1},"2013|Thu|Tripolee|Ana Sia":{"artist":"Ana Sia","day":"Thu","stage":"Tripolee","start":"9:00pm","end":"10:00pm","genre":"glitch-hop / bass","n":0},"2013|Thu|Forest Stage|Vokab Kompany":{"artist":"Vokab Kompany","day":"Thu","stage":"Forest Stage","start":"10:00pm","end":"11:00pm","genre":"electro-hip-hop / live band","n":1},"2013|Thu|Ranch Arena|Madeon":{"artist":"Madeon","day":"Thu","stage":"Ranch Arena","start":"10:15pm","end":"11:30pm","genre":"electro house / nu-disco (live Launchpad mashup)","n":6},"2013|Thu|Tripolee|Michal Menert":{"artist":"Michal Menert","day":"Thu","stage":"Tripolee","start":"10:15pm","end":"11:15pm","genre":"electro-soul / hip-hop / glitch (Pretty Lights Music)","n":1},"2013|Thu|Sherwood Court|EOTO":{"artist":"EOTO","day":"Thu","stage":"Sherwood Court","start":"10:45pm","end":"12:00am","genre":"live-improvised dubstep / bass","n":0},"2013|Thu|Forest Stage|Orchard Lounge":{"artist":"Orchard Lounge","day":"Thu","stage":"Forest Stage","start":"11:15pm","end":"12:15am","genre":"deep house / tech house","n":1},"2013|Thu|Tripolee|RL Grime":{"artist":"RL Grime","day":"Thu","stage":"Tripolee","start":"11:30pm","end":"12:30am","genre":"trap / bass","n":13},"2013|Thu|Ranch Arena|Benny Benassi":{"artist":"Benny Benassi","day":"Thu","stage":"Ranch Arena","start":"12:00am","end":"1:15am","genre":"electro house / big-room","n":12},"2013|Thu|Sherwood Court|Lotus":{"artist":"Lotus","day":"Thu","stage":"Sherwood Court","start":"12:30am","end":"2:00am","genre":"livetronica / jam","n":11},"2013|Thu|Tripolee|Headhunterz":{"artist":"Headhunterz","day":"Thu","stage":"Tripolee","start":"12:45am","end":"2:00am","genre":"hardstyle","n":11},"2013|Fri|Tripolee|Thriftworks":{"artist":"Thriftworks","day":"Fri","stage":"Tripolee","start":"1:30pm","end":"2:30pm","genre":"glitch-hop / downtempo bass","n":0},"2013|Fri|Tripolee|Bestfriends":{"artist":"Bestfriends","day":"Fri","stage":"Tripolee","start":"2:45pm","end":"3:45pm","genre":"electronic / DJ","n":0},"2013|Fri|Sherwood Court|Pigs on the Wing (ft. David Murphy of STS9)":{"artist":"Pigs on the Wing (ft. David Murphy of STS9)","day":"Fri","stage":"Sherwood Court","start":"5:15pm","end":"6:30pm","genre":"Pink Floyd tribute / psychedelic rock","n":3},"2013|Fri|Tripolee|Doldrums":{"artist":"Doldrums","day":"Fri","stage":"Tripolee","start":"5:15pm","end":"6:15pm","genre":"experimental electronic / noise-pop (live)","n":3},"2013|Fri|Tripolee|Milkman":{"artist":"Milkman","day":"Fri","stage":"Tripolee","start":"6:30pm","end":"7:30pm","genre":"mashup / electro house","n":0},"2013|Fri|Sherwood Court|Break Science":{"artist":"Break Science","day":"Fri","stage":"Sherwood Court","start":"7:00pm","end":"8:15pm","genre":"live electronic / hip-hop / glitch-soul (drums + keys)","n":3},"2013|Fri|Tripolee|The Polish Ambassador":{"artist":"The Polish Ambassador","day":"Fri","stage":"Tripolee","start":"7:45pm","end":"8:45pm","genre":"glitch-hop / funk / live electronic","n":3},"2013|Fri|Sherwood Court|GrizMatik w/ Special Guests (GRiZ + Gramatik + Big Gigantic = 'Big GrizMatik')":{"artist":"GrizMatik w/ Special Guests (GRiZ + Gramatik + Big Gigantic = 'Big GrizMatik')","day":"Fri","stage":"Sherwood Court","start":"9:00pm","end":"10:30pm","genre":"electro-soul / glitch-hop / live sax","n":10},"2013|Fri|Tripolee|Baauer":{"artist":"Baauer","day":"Fri","stage":"Tripolee","start":"9:00pm","end":"10:00pm","genre":"trap / bass / hip-hop","n":48},"2013|Fri|Tripolee|Clockwork":{"artist":"Clockwork","day":"Fri","stage":"Tripolee","start":"10:15pm","end":"11:15pm","genre":"electro house / big room / trap","n":40},"2013|Fri|Ranch Arena|The String Cheese Incident":{"artist":"The String Cheese Incident","day":"Fri","stage":"Ranch Arena","start":"10:30pm","end":"2:00am","genre":"jam band / livetronica / bluegrass-funk","n":21},"2013|Fri|Forest Stage|Munson Meeks":{"artist":"Munson Meeks","day":"Fri","stage":"Forest Stage","start":"11:00pm","end":"12:00am","genre":"DJ","n":0},"2013|Fri|Sherwood Court|Holy Ghost!":{"artist":"Holy Ghost!","day":"Fri","stage":"Sherwood Court","start":"11:00pm","end":"12:15am","genre":"nu-disco / synthpop (live band)","n":10},"2013|Fri|Tripolee|Kill the Noise":{"artist":"Kill the Noise","day":"Fri","stage":"Tripolee","start":"11:30pm","end":"12:30am","genre":"complextro / dubstep / electro","n":19},"2013|Fri|Forest Stage|Luke the Knife":{"artist":"Luke the Knife","day":"Fri","stage":"Forest Stage","start":"12:00am","end":"1:00am","genre":"DJ / dance","n":0},"2013|Fri|Silent Disco|Thriftworks":{"artist":"Thriftworks","day":"Fri","stage":"Silent Disco","start":"12:30am","end":"1:30am","genre":"glitch-hop / downtempo bass","n":0},"2013|Fri|Tripolee|Noisia":{"artist":"Noisia","day":"Fri","stage":"Tripolee","start":"12:45am","end":"1:45am","genre":"drum & bass / neurofunk / dubstep","n":6},"2013|Fri|Sherwood Court|Passion Pit":{"artist":"Passion Pit","day":"Fri","stage":"Sherwood Court","start":"1:00am","end":"2:30am","genre":"synthpop / indietronica","n":10},"2013|Fri|Silent Disco|Christian Rich":{"artist":"Christian Rich","day":"Fri","stage":"Silent Disco","start":"1:45am","end":"2:45am","genre":"hip-hop / DJ","n":0},"2013|Fri|Tripolee|Krewella":{"artist":"Krewella","day":"Fri","stage":"Tripolee","start":"2:00am","end":"3:15am","genre":"electro house / dubstep / EDM pop","n":10},"2013|Fri|Silent Disco / Good Life late-night|Exmag (secret set)":{"artist":"Exmag (secret set)","day":"Fri","stage":"Silent Disco / Good Life late-night","start":"2:45am","end":"","genre":"live electronic / electro-soul / glitch-funk","n":0},"2013|Sat|Tripolee|Party Supplies":{"artist":"Party Supplies","day":"Sat","stage":"Tripolee","start":"4:30pm","end":"5:30pm","genre":"hip-hop / party rap DJ set","n":0},"2013|Sat|Tripolee|Treasure Fingers":{"artist":"Treasure Fingers","day":"Sat","stage":"Tripolee","start":"5:30pm","end":"6:45pm","genre":"nu-disco / house","n":0},"2013|Sat|The Observatory|Manic Focus":{"artist":"Manic Focus","day":"Sat","stage":"The Observatory","start":"5:45pm","end":"6:45pm","genre":"electro-soul / glitch-hop / livetronica","n":3},"2013|Sat|Ranch Arena|Lettuce":{"artist":"Lettuce","day":"Sat","stage":"Ranch Arena","start":"6:00pm","end":"7:30pm","genre":"funk / soul-jazz / hip-hop funk","n":8},"2013|Sat|Tripolee|Nick Catchdubs":{"artist":"Nick Catchdubs","day":"Sat","stage":"Tripolee","start":"6:45pm","end":"8:00pm","genre":"party rap / trap / club / moombah","n":19},"2013|Sat|Sherwood Court|BoomBox":{"artist":"BoomBox","day":"Sat","stage":"Sherwood Court","start":"7:45pm","end":"9:00pm","genre":"psychedelic house / electro-blues (live guitar + vocals)","n":8},"2013|Sat|Tripolee|Craze":{"artist":"Craze","day":"Sat","stage":"Tripolee","start":"8:00pm","end":"9:15pm","genre":"turntablist / trap / bass / hip-hop","n":0},"2013|Sat|Ranch Arena|The String Cheese Incident":{"artist":"The String Cheese Incident","day":"Sat","stage":"Ranch Arena","start":"8:30pm","end":"12:00am","genre":"jam band / livetronica / bluegrass-funk","n":19},"2013|Sat|Tripolee|Just Blaze":{"artist":"Just Blaze","day":"Sat","stage":"Tripolee","start":"9:15pm","end":"10:15pm","genre":"hip-hop / trap / dance, turntable-heavy","n":0},"2013|Sat|Sherwood Court|3LAU":{"artist":"3LAU","day":"Sat","stage":"Sherwood Court","start":"9:30pm","end":"10:45pm","genre":"electro/progressive house / mashups","n":14},"2013|Sat|The Observatory|Russ Liquid":{"artist":"Russ Liquid","day":"Sat","stage":"The Observatory","start":"9:30pm","end":"10:30pm","genre":"live electronic / funk / glitch-hop (trumpet)","n":0},"2013|Sat|The Observatory|DVBBS":{"artist":"DVBBS","day":"Sat","stage":"The Observatory","start":"9:45pm","end":"10:45pm","genre":"big room / electro house","n":0},"2013|Sat|Silent Disco|The Dub Knight":{"artist":"The Dub Knight","day":"Sat","stage":"Silent Disco","start":"10:00pm","end":"11:00pm","genre":"DJ set","n":0},"2013|Sat|Tripolee|OLIVER":{"artist":"OLIVER","day":"Sat","stage":"Tripolee","start":"10:15pm","end":"11:30pm","genre":"nu-disco / deep house / electro / techno","n":6},"2013|Sat|The Observatory|Samo Sound Boy":{"artist":"Samo Sound Boy","day":"Sat","stage":"The Observatory","start":"11:00pm","end":"12:15am","genre":"club / bass / R&B-house (Body High)","n":0},"2013|Sat|Sherwood Court|Above & Beyond":{"artist":"Above & Beyond","day":"Sat","stage":"Sherwood Court","start":"11:30pm","end":"12:45am","genre":"trance / progressive trance","n":24},"2013|Sat|Tripolee|Flosstradamus":{"artist":"Flosstradamus","day":"Sat","stage":"Tripolee","start":"11:30pm","end":"12:45am","genre":"trap / hip-hop / moombah","n":47},"2013|Sat|Silent Disco|Lynx":{"artist":"Lynx","day":"Sat","stage":"Silent Disco","start":"12:30am","end":"1:30am","genre":"downtempo / organic electronica","n":1},"2013|Sat|Ranch Arena|Empire of the Sun":{"artist":"Empire of the Sun","day":"Sat","stage":"Ranch Arena","start":"12:45am","end":"2:00am","genre":"synthpop / psychedelic electropop","n":13},"2013|Sat|Tripolee|Danny Brown":{"artist":"Danny Brown","day":"Sat","stage":"Tripolee","start":"12:45am","end":"1:45am","genre":"hip-hop (live rap set, XXX era)","n":10},"2013|Sat|Sherwood Court|Knife Party":{"artist":"Knife Party","day":"Sat","stage":"Sherwood Court","start":"1:15am","end":"2:30am","genre":"electro house / complextro / dubstep","n":50},"2013|Sat|Tripolee|A-Trak":{"artist":"A-Trak","day":"Sat","stage":"Tripolee","start":"1:45am","end":"3:15am","genre":"electro house / trap / disco house, turntablism","n":52},"2013|Sat|Silent Disco|Shreddie Mercury":{"artist":"Shreddie Mercury","day":"Sat","stage":"Silent Disco","start":"2:30am","end":"3:30am","genre":"DJ set","n":0},"2013|Sun|Tripolee|The Floozies":{"artist":"The Floozies","day":"Sun","stage":"Tripolee","start":"2:30pm","end":"3:30pm","genre":"electro-funk / live funktronica","n":0},"2013|Sun|Tripolee|Robert DeLong":{"artist":"Robert DeLong","day":"Sun","stage":"Tripolee","start":"3:45pm","end":"4:45pm","genre":"indie electronic / live one-man-band","n":9},"2013|Sun|The Observatory|Sam Klass":{"artist":"Sam Klass","day":"Sun","stage":"The Observatory","start":"4:30pm","end":"5:30pm","genre":"acoustic / beatbox / live looping","n":1},"2013|Sun|Tripolee|Mutrix":{"artist":"Mutrix","day":"Sun","stage":"Tripolee","start":"5:00pm","end":"6:00pm","genre":"glitch-hop / bass","n":0},"2013|Sun|Tripolee|Eliot Lipp":{"artist":"Eliot Lipp","day":"Sun","stage":"Tripolee","start":"6:15pm","end":"7:15pm","genre":"electro-funk / glitch-hop / synth beats","n":0},"2013|Sun|Ranch Arena|The String Cheese Incident":{"artist":"The String Cheese Incident","day":"Sun","stage":"Ranch Arena","start":"6:45pm","end":"10:15pm","genre":"jam band / livetronica / bluegrass-funk","n":19},"2013|Sun|Sherwood Court|Future Rock":{"artist":"Future Rock","day":"Sun","stage":"Sherwood Court","start":"7:00pm","end":"8:15pm","genre":"livetronica / electro-rock","n":0},"2013|Sun|Tripolee|Eskmo":{"artist":"Eskmo","day":"Sun","stage":"Tripolee","start":"7:30pm","end":"8:30pm","genre":"experimental bass / downtempo","n":0},"2013|Sun|Forest Stage|LowRIDERz":{"artist":"LowRIDERz","day":"Sun","stage":"Forest Stage","start":"7:45pm","end":"8:45pm","genre":"livetronica / funk","n":0},"2013|Sun|Sherwood Court|Emancipator":{"artist":"Emancipator","day":"Sun","stage":"Sherwood Court","start":"8:45pm","end":"10:00pm","genre":"downtempo / trip-hop / chillstep","n":4},"2013|Sun|Tripolee|Le Castle Vania":{"artist":"Le Castle Vania","day":"Sun","stage":"Tripolee","start":"8:45pm","end":"9:45pm","genre":"electro house / complextro","n":2},"2013|Sun|Forest Stage|Shreddie Mercury":{"artist":"Shreddie Mercury","day":"Sun","stage":"Forest Stage","start":"9:00pm","end":"10:00pm","genre":"mashup / electro-rock DJ","n":0},"2013|Sun|Tripolee|Tommy Trash":{"artist":"Tommy Trash","day":"Sun","stage":"Tripolee","start":"10:00pm","end":"11:00pm","genre":"electro house / progressive house","n":29},"2013|Sun|Forest Stage|Russ Liquid":{"artist":"Russ Liquid","day":"Sun","stage":"Forest Stage","start":"10:15pm","end":"11:15pm","genre":"electro-funk / live trumpet & flute over bass","n":0},"2013|Sun|Sherwood Court|Yeasayer":{"artist":"Yeasayer","day":"Sun","stage":"Sherwood Court","start":"10:30pm","end":"11:45pm","genre":"art pop / experimental indie","n":15},"2013|Sun|Ranch Arena|Pretty Lights":{"artist":"Pretty Lights","day":"Sun","stage":"Ranch Arena","start":"11:00pm","end":"12:45am","genre":"electro-soul / glitch-hop / hip-hop sampling","n":25},"2013|Sun|Tripolee|NERVO":{"artist":"NERVO","day":"Sun","stage":"Tripolee","start":"11:15pm","end":"12:15am","genre":"big room / progressive house","n":16},"2013|Sun|Forest Stage|Lance Herbstrong":{"artist":"Lance Herbstrong","day":"Sun","stage":"Forest Stage","start":"11:30pm","end":"12:45am","genre":"electro / dance-rock DJ duo","n":0},"2013|Sun|Sherwood Court|Beats Antique":{"artist":"Beats Antique","day":"Sun","stage":"Sherwood Court","start":"12:15am","end":"1:45am","genre":"world fusion / tribal bass / belly-dance electronica","n":4},"2013|Sun|Tripolee|Keys N Krates":{"artist":"Keys N Krates","day":"Sun","stage":"Tripolee","start":"12:30am","end":"1:30am","genre":"trap / live turntablism / hip-hop bass","n":4}},"2014":{"2014|Thu|Ranch Arena|Cherub":{"artist":"Cherub","day":"Thu","stage":"Ranch Arena","start":"5:00pm","end":"6:15pm","genre":"electro-funk, synth-pop, live band","n":3},"2014|Thu|Tripolee|Kaytranada":{"artist":"Kaytranada","day":"Thu","stage":"Tripolee","start":"5:00pm","end":"6:15pm","genre":"house, hip-hop, beat scene","n":2},"2014|Thu|Tripolee|Jimmy Edgar":{"artist":"Jimmy Edgar","day":"Thu","stage":"Tripolee","start":"6:15pm","end":"7:30pm","genre":"techno, ghetto house, electro","n":6},"2014|Thu|The Observatory|Late Night Radio":{"artist":"Late Night Radio","day":"Thu","stage":"The Observatory","start":"6:30pm","end":"7:30pm","genre":"glitch-hop, soul/funk-sampling electronic","n":0},"2014|Thu|Ranch Arena|Cash Cash":{"artist":"Cash Cash","day":"Thu","stage":"Ranch Arena","start":"6:45pm","end":"8:00pm","genre":"electro house, big-room EDM","n":17},"2014|Thu|Tripolee|J Phlip":{"artist":"J Phlip","day":"Thu","stage":"Tripolee","start":"7:30pm","end":"8:45pm","genre":"tech house, Dirtybird bass house","n":6},"2014|Thu|Forest Stage|Penguin Prison (DJ Set)":{"artist":"Penguin Prison (DJ Set)","day":"Thu","stage":"Forest Stage","start":"8:00pm","end":"9:00pm","genre":"nu-disco, indie dance DJ set","n":0},"2014|Thu|Ranch Arena|Paper Diamond":{"artist":"Paper Diamond","day":"Thu","stage":"Ranch Arena","start":"8:30pm","end":"9:45pm","genre":"trap, bass, electro","n":38},"2014|Thu|Tripolee|Catz 'N Dogz":{"artist":"Catz 'N Dogz","day":"Thu","stage":"Tripolee","start":"8:45pm","end":"10:00pm","genre":"house, tech house","n":0},"2014|Thu|Sherwood Court|EOTO":{"artist":"EOTO","day":"Thu","stage":"Sherwood Court","start":"9:00pm","end":"10:15pm","genre":"improvised live dubstep / bass (live looping)","n":0},"2014|Thu|Forest Stage|Francesca Lombardo":{"artist":"Francesca Lombardo","day":"Thu","stage":"Forest Stage","start":"9:30pm","end":"10:30pm","genre":"deep house, minimal","n":0},"2014|Thu|Tripolee|Justin Martin":{"artist":"Justin Martin","day":"Thu","stage":"Tripolee","start":"10:00pm","end":"11:15pm","genre":"Dirtybird bass house, tech house","n":2},"2014|Thu|Ranch Arena|The Glitch Mob":{"artist":"The Glitch Mob","day":"Thu","stage":"Ranch Arena","start":"10:15pm","end":"11:30pm","genre":"glitch-hop, live electronic (Love Death Immortality live rig)","n":11},"2014|Thu|Tripolee|Dusky":{"artist":"Dusky","day":"Thu","stage":"Tripolee","start":"11:15pm","end":"12:30am","genre":"deep house, UK house, techno","n":12},"2014|Thu|Ranch Arena|Zeds Dead":{"artist":"Zeds Dead","day":"Thu","stage":"Ranch Arena","start":"12:00am","end":"1:15am","genre":"dubstep, bass, drum & bass","n":16},"2014|Thu|Forest Stage|Poolside (Live)":{"artist":"Poolside (Live)","day":"Thu","stage":"Forest Stage","start":"12:30am","end":"1:45am","genre":"daytime disco, nu-disco, live band","n":0},"2014|Thu|Tripolee|Classixx":{"artist":"Classixx","day":"Thu","stage":"Tripolee","start":"12:45am","end":"2:00am","genre":"nu-disco, house","n":2},"2014|Fri|Tripolee|Fury + MC Dino":{"artist":"Fury + MC Dino","day":"Fri","stage":"Tripolee","start":"1:30pm","end":"3:30pm","genre":"bass, drum & bass, dubstep (opening set)","n":0},"2014|Fri|Tripolee|Lindsay Lowend":{"artist":"Lindsay Lowend","day":"Fri","stage":"Tripolee","start":"3:30pm","end":"4:30pm","genre":"future bass, glitch-hop, trap","n":0},"2014|Fri|Tripolee|Luminox":{"artist":"Luminox","day":"Fri","stage":"Tripolee","start":"4:30pm","end":"5:30pm","genre":"trap, moombahton, bass house","n":26},"2014|Fri|Forest Stage|Chrome Sparks":{"artist":"Chrome Sparks","day":"Fri","stage":"Forest Stage","start":"5:00pm","end":"6:00pm","genre":"synth-pop, future beats, downtempo electronic","n":4},"2014|Fri|Sherwood Court|Zoogma":{"artist":"Zoogma","day":"Fri","stage":"Sherwood Court","start":"5:15pm","end":"6:30pm","genre":"livetronica, electro-rock","n":6},"2014|Fri|Tripolee|Protohype":{"artist":"Protohype","day":"Fri","stage":"Tripolee","start":"5:30pm","end":"6:30pm","genre":"dubstep, trap, glitch-hop","n":42},"2014|Fri|Forest Stage|S/HE":{"artist":"S/HE","day":"Fri","stage":"Forest Stage","start":"6:30pm","end":"7:30pm","genre":"DJ set (unknown)","n":0},"2014|Fri|Tripolee|Pegboard Nerds":{"artist":"Pegboard Nerds","day":"Fri","stage":"Tripolee","start":"6:30pm","end":"7:30pm","genre":"electro, dubstep, drumstep, hardstyle-trap","n":51},"2014|Fri|Sherwood Court|Papadosio":{"artist":"Papadosio","day":"Fri","stage":"Sherwood Court","start":"7:00pm","end":"8:15pm","genre":"livetronica, psychedelic jam","n":7},"2014|Fri|Tripolee|Wilkinson":{"artist":"Wilkinson","day":"Fri","stage":"Tripolee","start":"7:30pm","end":"8:30pm","genre":"drum & bass, liquid/dancefloor dnb","n":16},"2014|Fri|Ranch Arena|The String Cheese Incident":{"artist":"The String Cheese Incident","day":"Fri","stage":"Ranch Arena","start":"8:00pm","end":"11:45pm","genre":"jam band, bluegrass-funk, livetronica","n":17},"2014|Fri|Tripolee|Dirtyphonics":{"artist":"Dirtyphonics","day":"Fri","stage":"Tripolee","start":"8:30pm","end":"9:30pm","genre":"dubstep, drum & bass, electro","n":44},"2014|Fri|Sherwood Court|Conspirator":{"artist":"Conspirator","day":"Fri","stage":"Sherwood Court","start":"8:45pm","end":"10:00pm","genre":"livetronica, trance-fusion (Disco Biscuits side project)","n":6},"2014|Fri|Forest Stage|Golf Clap":{"artist":"Golf Clap","day":"Fri","stage":"Forest Stage","start":"9:30pm","end":"10:30pm","genre":"house, tech house, disco house","n":0},"2014|Fri|Tripolee|I Am Legion (Noisia + Foreign Beggars)":{"artist":"I Am Legion (Noisia + Foreign Beggars)","day":"Fri","stage":"Tripolee","start":"9:30pm","end":"10:30pm","genre":"bass, halftime, dnb, grime/hip-hop (live MCs)","n":22},"2014|Fri|Sherwood Court|STS9":{"artist":"STS9","day":"Fri","stage":"Sherwood Court","start":"10:30pm","end":"12:00am","genre":"livetronica, jamtronica","n":12},"2014|Fri|Tripolee|12th Planet":{"artist":"12th Planet","day":"Fri","stage":"Tripolee","start":"10:30pm","end":"11:30pm","genre":"dubstep, riddim, trap","n":38},"2014|Fri|Forest Stage|Dantiez Saunderson B2B Kevin Saunderson":{"artist":"Dantiez Saunderson B2B Kevin Saunderson","day":"Fri","stage":"Forest Stage","start":"11:00pm","end":"1:15am","genre":"Detroit techno, tech house, house","n":15},"2014|Fri|Silent Disco|Muzzy":{"artist":"Muzzy","day":"Fri","stage":"Silent Disco","start":"11:00pm","end":"12:30am","genre":"drum & bass, drumstep","n":3},"2014|Fri|Tripolee|Bro Safari":{"artist":"Bro Safari","day":"Fri","stage":"Tripolee","start":"11:30pm","end":"12:30am","genre":"trap, dubstep, moombahton","n":42},"2014|Fri|Ranch Arena|Zedd":{"artist":"Zedd","day":"Fri","stage":"Ranch Arena","start":"12:30am","end":"2:00am","genre":"electro house, big room, progressive house","n":20},"2014|Fri|Tripolee|Andy C":{"artist":"Andy C","day":"Fri","stage":"Tripolee","start":"12:30am","end":"1:45am","genre":"drum & bass (RAM), jump-up, dancefloor dnb","n":68},"2014|Fri|Forest Stage|Soul Visions":{"artist":"Soul Visions","day":"Fri","stage":"Forest Stage","start":"1:45am","end":"3:00am","genre":"live world-electronic / global bass (Rising Appalachia x The Human Experience)","n":0},"2014|Fri|Tripolee|Excision":{"artist":"Excision","day":"Fri","stage":"Tripolee","start":"1:45am","end":"3:00am","genre":"dubstep, trap, drumstep","n":56},"2014|Sat|Tripolee|The Unsheathed!":{"artist":"The Unsheathed!","day":"Sat","stage":"Tripolee","start":"1:45pm","end":"3:00pm","genre":"house (Deep in the Forest opener)","n":0},"2014|Sat|Tripolee|Anna Lunoe":{"artist":"Anna Lunoe","day":"Sat","stage":"Tripolee","start":"3:00pm","end":"4:15pm","genre":"house, ghetto house, club","n":1},"2014|Sat|Sherwood Court|The Floozies":{"artist":"The Floozies","day":"Sat","stage":"Sherwood Court","start":"4:15pm","end":"5:30pm","genre":"electro-funk, livetronica duo","n":1},"2014|Sat|Tripolee|Eric Volta":{"artist":"Eric Volta","day":"Sat","stage":"Tripolee","start":"4:15pm","end":"5:30pm","genre":"deep house, tech house","n":0},"2014|Sat|Forest Stage|Gemini Club":{"artist":"Gemini Club","day":"Sat","stage":"Forest Stage","start":"5:30pm","end":"6:30pm","genre":"synth pop, indie electronic (Chicago)","n":0},"2014|Sat|Tripolee|Bob Moses":{"artist":"Bob Moses","day":"Sat","stage":"Tripolee","start":"5:30pm","end":"6:45pm","genre":"deep house, live electronic","n":2},"2014|Sat|Tripolee|Kastle":{"artist":"Kastle","day":"Sat","stage":"Tripolee","start":"6:45pm","end":"8:00pm","genre":"bass, house, UK garage","n":1},"2014|Sat|Sherwood Court|Emancipator Ensemble":{"artist":"Emancipator Ensemble","day":"Sat","stage":"Sherwood Court","start":"7:45pm","end":"9:00pm","genre":"downtempo, live trip-hop/chillout","n":2},"2014|Sat|The Observatory|Muzzy":{"artist":"Muzzy","day":"Sat","stage":"The Observatory","start":"7:45pm","end":"8:45pm","genre":"electronic","n":0},"2014|Sat|Tripolee|MK":{"artist":"MK","day":"Sat","stage":"Tripolee","start":"8:00pm","end":"9:30pm","genre":"house, deep house","n":12},"2014|Sat|Ranch Arena|The String Cheese Incident":{"artist":"The String Cheese Incident","day":"Sat","stage":"Ranch Arena","start":"8:15pm","end":"11:45pm","genre":"jam band, livetronica, reggae/soul covers w/ Lauryn Hill","n":19},"2014|Sat|Forest Stage|Topher Jones":{"artist":"Topher Jones","day":"Sat","stage":"Forest Stage","start":"8:30pm","end":"9:45pm","genre":"progressive house, melodic electronic","n":0},"2014|Sat|Sherwood Court|Flying Lotus":{"artist":"Flying Lotus","day":"Sat","stage":"Sherwood Court","start":"9:30pm","end":"10:45pm","genre":"experimental hip hop, beats, Layer 3 3D show","n":24},"2014|Sat|Tripolee|Destructo":{"artist":"Destructo","day":"Sat","stage":"Tripolee","start":"9:30pm","end":"11:00pm","genre":"G-house, electro house","n":9},"2014|Sat|Silent Disco|Craigslist Hookup (Blue Channel)":{"artist":"Craigslist Hookup (Blue Channel)","day":"Sat","stage":"Silent Disco","start":"10:00pm","end":"12:00am","genre":"DJ (silent disco)","n":0},"2014|Sat|Forest Stage|Until the Ribbon Breaks":{"artist":"Until the Ribbon Breaks","day":"Sat","stage":"Forest Stage","start":"10:15pm","end":"11:15pm","genre":"electronic pop, trip hop (live band)","n":3},"2014|Sat|The Observatory|Blue Sky Black Death":{"artist":"Blue Sky Black Death","day":"Sat","stage":"The Observatory","start":"10:45pm","end":"11:45pm","genre":"instrumental hip hop, ambient, post-rock electronica","n":1},"2014|Sat|Tripolee|Soul Clap":{"artist":"Soul Clap","day":"Sat","stage":"Tripolee","start":"11:00pm","end":"12:30am","genre":"house, disco, funk","n":9},"2014|Sat|Sherwood Court|Booka Shade (Live)":{"artist":"Booka Shade (Live)","day":"Sat","stage":"Sherwood Court","start":"11:15pm","end":"12:30am","genre":"live house, deep house, electronica","n":17},"2014|Sat|Silent Disco|Topher Jones (Blue Channel)":{"artist":"Topher Jones (Blue Channel)","day":"Sat","stage":"Silent Disco","start":"12:00am","end":"2:00am","genre":"progressive house, melodic electronic","n":0},"2014|Sat|Ranch Arena|Steve Angello":{"artist":"Steve Angello","day":"Sat","stage":"Ranch Arena","start":"12:30am","end":"2:00am","genre":"progressive house, big room","n":34},"2014|Sat|Tripolee|Lee Burridge":{"artist":"Lee Burridge","day":"Sat","stage":"Tripolee","start":"12:30am","end":"1:45am","genre":"deep house, All Day I Dream melodic house","n":0},"2014|Sat|Sherwood Court|STS9":{"artist":"STS9","day":"Sat","stage":"Sherwood Court","start":"1:00am","end":"2:30am","genre":"livetronica, jamtronica","n":12},"2014|Sat|Forest Stage|RAC (DJ Set)":{"artist":"RAC (DJ Set)","day":"Sat","stage":"Forest Stage","start":"1:30am","end":"3:00am","genre":"indie dance, remixes","n":0},"2014|Sat|Tripolee|Art Department":{"artist":"Art Department","day":"Sat","stage":"Tripolee","start":"1:45am","end":"3:15am","genre":"tech house, deep house (No.19 / Crosstown Rebels)","n":0},"2014|Sat|Silent Disco|Soul Clap (Blue Channel)":{"artist":"Soul Clap (Blue Channel)","day":"Sat","stage":"Silent Disco","start":"2:00am","end":"close","genre":"house, disco, funk","n":0},"2014|Sun|Tripolee|Luke the Knife":{"artist":"Luke the Knife","day":"Sun","stage":"Tripolee","start":"1:15pm","end":"2:15pm","genre":"DJ set, disco/funk edits, house (Luke Miller of Lotus)","n":0},"2014|Sun|Tripolee|Natasha Kmeto":{"artist":"Natasha Kmeto","day":"Sun","stage":"Tripolee","start":"2:30pm","end":"3:30pm","genre":"live electronic R&B/soul, future bass","n":3},"2014|Sun|Tripolee|Trippy Turtle":{"artist":"Trippy Turtle","day":"Sun","stage":"Tripolee","start":"3:45pm","end":"4:45pm","genre":"Jersey club, trap, R&B edits (Mad Decent)","n":6},"2014|Sun|Forest Stage|Earphunk":{"artist":"Earphunk","day":"Sun","stage":"Forest Stage","start":"4:15pm","end":"5:15pm","genre":"funk, livetronica (New Orleans)","n":6},"2014|Sun|Tripolee|K Theory":{"artist":"K Theory","day":"Sun","stage":"Tripolee","start":"5:00pm","end":"6:00pm","genre":"trap, hip-hop, bass","n":0},"2014|Sun|Forest Stage|Kygo":{"artist":"Kygo","day":"Sun","stage":"Forest Stage","start":"5:45pm","end":"6:45pm","genre":"tropical house, melodic deep house","n":15},"2014|Sun|Tripolee|Alex Metric":{"artist":"Alex Metric","day":"Sun","stage":"Tripolee","start":"6:15pm","end":"7:15pm","genre":"house, nu-disco, electro","n":17},"2014|Sun|Ranch Arena|Matt & Kim":{"artist":"Matt & Kim","day":"Sun","stage":"Ranch Arena","start":"6:45pm","end":"7:45pm","genre":"indie-electro, dance-punk (live duo)","n":22},"2014|Sun|Forest Stage|Isaac Tichauer":{"artist":"Isaac Tichauer","day":"Sun","stage":"Forest Stage","start":"7:15pm","end":"11:15pm","genre":"deep house, French Express","n":1},"2014|Sun|Forest Stage|Perseus":{"artist":"Perseus","day":"Sun","stage":"Forest Stage","start":"7:15pm","end":"11:15pm","genre":"nu-disco, deep house (French Express label head)","n":0},"2014|Sun|Forest Stage|Jonas Rathsman":{"artist":"Jonas Rathsman","day":"Sun","stage":"Forest Stage","start":"7:15pm","end":"11:15pm","genre":"deep house, French Express","n":0},"2014|Sun|Forest Stage|Moon Boots":{"artist":"Moon Boots","day":"Sun","stage":"Forest Stage","start":"7:15pm","end":"11:15pm","genre":"nu-disco, deep house, French Express","n":0},"2014|Sun|Sherwood Court|St. Lucia":{"artist":"St. Lucia","day":"Sun","stage":"Sherwood Court","start":"7:15pm","end":"8:30pm","genre":"synth-pop, indie dance (live band)","n":11},"2014|Sun|Tripolee|What So Not":{"artist":"What So Not","day":"Sun","stage":"Tripolee","start":"7:30pm","end":"8:30pm","genre":"trap, future bass, bass (Emoh Instead solo)","n":46},"2014|Sun|Ranch Arena|The String Cheese Incident":{"artist":"The String Cheese Incident","day":"Sun","stage":"Ranch Arena","start":"8:30pm","end":"12:45am","genre":"jam band, bluegrass-funk, livetronica","n":18},"2014|Sun|Tripolee|Seven Lions":{"artist":"Seven Lions","day":"Sun","stage":"Tripolee","start":"8:45pm","end":"9:45pm","genre":"melodic dubstep, trance","n":18},"2014|Sun|Sherwood Court|RAC (Live)":{"artist":"RAC (Live)","day":"Sun","stage":"Sherwood Court","start":"9:00pm","end":"10:15pm","genre":"indie-electronic, remix band (live)","n":13},"2014|Sun|Tripolee|Cashmere Cat":{"artist":"Cashmere Cat","day":"Sun","stage":"Tripolee","start":"10:00pm","end":"11:00pm","genre":"future beats, R&B edits, trap","n":21},"2014|Sun|Sherwood Court|Tycho":{"artist":"Tycho","day":"Sun","stage":"Sherwood Court","start":"10:45pm","end":"12:00am","genre":"ambient electronica, chillwave, post-rock (live band)","n":13},"2014|Sun|Silent Disco|Filabusta":{"artist":"Filabusta","day":"Sun","stage":"Silent Disco","start":"11:00pm","end":"close","genre":"electro-funk, glitch-hop, bass","n":0},"2014|Sun|Tripolee|GTA":{"artist":"GTA","day":"Sun","stage":"Tripolee","start":"11:15pm","end":"12:15am","genre":"moombahton, trap, Miami bass, festival trap","n":58},"2014|Sun|Forest Stage|Manic Menert":{"artist":"Manic Menert","day":"Sun","stage":"Forest Stage","start":"11:45pm","end":"1:00am","genre":"live electro-soul, glitch-hop, hip-hop (Manic Focus + Michal Menert)","n":3},"2014|Sun|Sherwood Court|Cut Copy":{"artist":"Cut Copy","day":"Sun","stage":"Sherwood Court","start":"12:30am","end":"1:45am","genre":"synth-pop, indie dance (live band)","n":15},"2014|Sun|Tripolee|Moby (DJ Set)":{"artist":"Moby (DJ Set)","day":"Sun","stage":"Tripolee","start":"12:30am","end":"1:45am","genre":"electro house, big room, rave classics","n":16}}}</script>
+<script>
+(() => {
+const GH_REPO = 'JunkfoodJon/EF2013Revival';
+const SETS = JSON.parse(document.getElementById('sets').textContent);   // {year: {setKey: {...}}}
+const STAGES = {'Ranch Arena':'var(--s-ranch)','Sherwood Court':'var(--s-sherwood)','Tripolee':'var(--s-tripolee)','Forest Stage':'var(--s-forest)','The Observatory':'var(--s-obs)','Silent Disco':'var(--s-silent)'};
+const DAYS = {Thu:0, Fri:1, Sat:2, Sun:3}, DAYNAME = {Thu:'Thursday', Fri:'Friday', Sat:'Saturday', Sun:'Sunday'};
+const KINDS = {missing:'Missing track(s)', wrong:'Wrong track listed', order:'Wrong order', set:'Missing set / act', other:'Something else'};
+const EVIDENCE = {there:'I was there', recording:'Recording / video', tracklist:'Tracklist site', other:'Other'};
+const STATUS = {new:'New', accepted:'Accepted', merged:'Merged', rejected:'Rejected'};
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm = s => (s || '').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, ' ').trim();
+const store = {get(k, d){ try { const v = sessionStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } }, set(k, v){ try { sessionStorage.setItem(k, JSON.stringify(v)); } catch {} }};
+const st = {year:'all', status:'open', q:'', reports:[], error:null};
+let toastT; const toast = m => { const el = $('#toast'); el.textContent = m; el.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('show'), 1600); };
+async function copy(text, msg){ try { await navigator.clipboard.writeText(text); } catch { const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch {} ta.remove(); } toast(msg); }
+function mins(t){ const m = /^(\d{1,2}):(\d\d)\s*([ap])m$/i.exec((t || '').trim()); if (!m) return 9999; let h = (+m[1]) % 12 + (m[3].toLowerCase() === 'p' ? 12 : 0); if (h < 9) h += 24; return h * 60 + (+m[2]); }
+
+$('#repoLink').textContent = GH_REPO; $('#repoLink').href = `https://github.com/${GH_REPO}/issues`;
+
+// ---------- reading issues ----------
+function statusOf(issue){
+  const labels = (issue.labels || []).map(l => (l.name || '').toLowerCase());
+  if (issue.state === 'closed') return (issue.state_reason === 'not_planned' || labels.some(l => ['wontfix','invalid','duplicate'].includes(l))) ? 'rejected' : 'merged';
+  if (labels.some(l => ['wontfix','invalid','duplicate'].includes(l))) return 'rejected';
+  return labels.includes('accepted') ? 'accepted' : 'new';
+}
+function parseIssue(issue){
+  const body = issue.body || '';
+  const m = /<!--\s*ef-report\s+([\s\S]*?)\s*-->/.exec(body);
+  let r = null;
+  if (m) { try { r = JSON.parse(m[1]); } catch {} }
+  if (!r){
+    if (!/^\[Missing tracks\]/i.test(issue.title || '')) return null;      // not one of ours
+    // hand-written or edited report: keep it, filed by its title
+    const t = /EF(\d{4})\s*·\s*([^·]+?)(?:\s*·\s*(Thu|Fri|Sat|Sun)\s+(.+))?$/.exec(issue.title.replace(/^\[Missing tracks\]\s*/i, '')) || [];
+    r = {year: t[1] || '', artist: (t[2] || 'Unknown act').trim(), day: t[3] || '', stage: (t[4] || '').trim(), kind: 'other', evidence: 'other', tracks: [], message: body.replace(/<!--[\s\S]*?-->/g, '').slice(0, 1500)};
+    r.setKey = `${r.year}|${r.day}|${r.stage}|${r.artist}`;
+  }
+  r.tracks = Array.isArray(r.tracks) ? r.tracks.slice(0, 80) : [];
+  return {...r, source: r.url || '', issue: issue.number, url: issue.html_url, status: statusOf(issue), user: issue.user?.login || 'someone',
+          avatar: issue.user?.avatar_url || '', created: issue.created_at, comments: issue.comments || 0};
+}
+async function load(force){
+  const cached = store.get('mt.cache', null);
+  if (!force && cached && Date.now() - cached.at < 3 * 60e3) { st.reports = cached.reports; st.error = null; return render(); }
+  $('#list').innerHTML = '<div class="mt-msg">Loading reports from GitHub…</div>';
+  try {
+    const all = [];
+    for (let page = 1; page <= 5; page++){        // up to 500 issues
+      const r = await fetch(`https://api.github.com/repos/${GH_REPO}/issues?state=all&per_page=100&page=${page}&sort=created&direction=desc`, {headers:{Accept:'application/vnd.github+json'}});
+      if (r.status === 403 || r.status === 429){
+        const reset = +r.headers.get('x-ratelimit-reset');
+        throw new Error(`GitHub's hourly limit for this connection is used up${reset ? `; it resets at ${new Date(reset * 1000).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'})}` : ''}. Try again then.`);
+      }
+      if (!r.ok) throw new Error(`GitHub answered ${r.status}. Try Refresh in a minute.`);
+      const batch = await r.json();
+      all.push(...batch.filter(i => !i.pull_request));
+      if (batch.length < 100) break;
+    }
+    st.reports = all.map(parseIssue).filter(Boolean);
+    st.error = null;
+    store.set('mt.cache', {at: Date.now(), reports: st.reports});
+  } catch (e){
+    st.error = e.message.includes('fetch') ? 'Couldn’t reach GitHub. Check your connection and press Refresh.' : e.message;
+    if (cached) st.reports = cached.reports;
+  }
+  render();
+}
+
+// ---------- rendering ----------
+function setInfo(r){
+  const Y = SETS[r.year] || {};
+  if (Y[r.setKey]) return Y[r.setKey];
+  // fall back to a looser match on artist + day (the title may have been edited)
+  const hit = Object.entries(Y).find(([k, v]) => norm(v.artist) === norm(r.artist) && (!r.day || v.day === r.day));
+  return hit ? hit[1] : null;
+}
+function render(){
+  const yrs = ['all', ...Object.keys(SETS).sort()];
+  $('#years').innerHTML = yrs.map(y => `<button data-year="${y}" aria-pressed="${st.year === y}">${y === 'all' ? 'All years' : y}</button>`).join('');
+  $('#status').innerHTML = [['open','Open'],['new','New'],['accepted','Accepted'],['merged','Merged'],['rejected','Rejected'],['all','All']]
+    .map(([k, l]) => `<button data-status="${k}" aria-pressed="${st.status === k}">${l}</button>`).join('');
+  const R = st.reports;
+  const cnt = k => R.filter(r => r.status === k).length;
+  $('#stats').innerHTML = [[R.length, 'reports'], [new Set(R.map(r => r.year + '|' + r.artist)).size, 'sets'], [R.reduce((a, r) => a + r.tracks.length, 0), 'tracks suggested'],
+    [cnt('new'), 'new'], [cnt('accepted'), 'accepted'], [cnt('merged'), 'merged']].map(([n, l]) => `<span class="stat"><b>${n}</b>${l}</span>`).join('');
+  const q = norm(st.q);
+  const rows = R.filter(r => (st.year === 'all' || String(r.year) === st.year)
+      && (st.status === 'all' || (st.status === 'open' ? ['new', 'accepted'].includes(r.status) : r.status === st.status))
+      && (!q || norm([r.artist, r.message, ...r.tracks.map(t => t.artist + ' ' + t.title)].join(' ')).includes(q)));
+  // group by year, then by set in festival order
+  const groups = new Map();
+  for (const r of rows){
+    const info = setInfo(r);
+    const key = r.year + '|' + (info ? `${info.day}|${info.stage}|${info.artist}` : '?|' + norm(r.artist));
+    if (!groups.has(key)) groups.set(key, {year: r.year, info, artist: info?.artist || r.artist, when: r.when, reps: []});
+    groups.get(key).reps.push(r);
+  }
+  const ordered = [...groups.values()].sort((a, b) => a.year.localeCompare(b.year)
+    || (a.info ? DAYS[a.info.day] : 9) - (b.info ? DAYS[b.info.day] : 9) || mins(a.info?.start) - mins(b.info?.start) || a.artist.localeCompare(b.artist));
+  let html = '', lastYear = '';
+  for (const g of ordered){
+    if (g.year !== lastYear){ html += `${lastYear ? '</div></section>' : ''}<section class="day" style="--dc:var(--lime)"><div class="day-h"><h2>EF ${esc(g.year)}</h2><span class="sub">${ordered.filter(x => x.year === g.year).reduce((a, x) => a + x.reps.length, 0)} reports</span></div><div class="timeline">`; lastYear = g.year; }
+    const i = g.info, sc = i ? (STAGES[i.stage] || 'var(--s-other)') : 'var(--s-other)';
+    html += `<div class="slot ${i ? '' : 'mt-unmatched'}" style="--sc:${sc}"><span class="when">${esc(i?.start || '?')}</span>
+      <article class="set open">
+        <div class="set-h"><div><h3>${esc(g.artist)}</h3>
+          <div class="meta">${i ? `<span class="stage">${esc(i.stage)}</span><span>${esc(DAYNAME[i.day])} ${esc(i.start)} – ${esc(i.end)}</span>${i.genre ? `<span class="genre">${esc(i.genre)}</span>` : ''}<span>${i.n} tracks listed now</span>` : `<span>Not on the ${esc(g.year)} schedule here${g.when ? ' · ' + esc(g.when) : ''}</span>`}</div></div>
+          <div class="right"><span class="count">${g.reps.length} report${g.reps.length > 1 ? 's' : ''}</span></div></div>
+        <div class="set-b">${g.reps.map(rep).join('')}</div>
+      </article></div>`;
+  }
+  if (lastYear) html += '</div></section>';
+  const err = st.error ? `<div class="mt-msg"><b>${esc(st.error)}</b></div>` : '';
+  $('#list').innerHTML = err + (html || (st.error ? '' : `<div class="mt-msg"><b>${R.length ? 'Nothing matches these filters.' : 'No reports yet.'}</b><br>${R.length ? 'Try another year or status.' : 'Open any set on the tracklists page and press <b>+ Add missing tracks</b> to send the first one.'}</div>`));
+}
+function rep(r){
+  const lines = r.tracks.map(t => `${t.pos ? t.pos + '. ' : ''}${t.artist ? t.artist + ' - ' : ''}${t.title}`).join('\n');
+  return `<div class="mt-rep">
+    <div class="mt-who">${r.avatar ? `<img src="${esc(r.avatar)}&s=40" alt="" loading="lazy">` : ''}<b>@${esc(r.user)}</b>
+      <span class="mt-status" data-s="${r.status}">${STATUS[r.status]}</span>
+      <span>${esc(KINDS[r.kind] || 'Report')}</span>·<span>${esc(EVIDENCE[r.evidence] || '')}</span>·<span>${esc(String(r.created).slice(0, 10))}</span>
+      ${r.comments ? `<span>${r.comments} comment${r.comments > 1 ? 's' : ''}</span>` : ''}</div>
+    ${r.tracks.length ? `<ul class="mt-tracks">${r.tracks.map(t => `<li><span class="p">${t.pos ? '#' + esc(t.pos) : ''}</span><span>${t.artist ? `<span class="a">${esc(t.artist)}</span> – ` : ''}<span class="t">${esc(t.title)}</span></span></li>`).join('')}</ul>` : ''}
+    ${r.message ? `<p class="mt-note">${esc(r.message)}</p>` : ''}
+    <div class="mt-tools">
+      <a class="btn" href="${esc(r.url)}" target="_blank" rel="noopener">View on GitHub #${esc(r.issue)}</a>
+      ${r.source && /^https?:\/\//i.test(r.source) ? `<a class="btn" href="${esc(r.source)}" target="_blank" rel="noopener">▶ Source</a>` : ''}
+      ${lines ? `<button class="btn" data-copy="${esc(lines)}">Copy tracks</button>` : ''}
+    </div>
+  </div>`;
+}
+
+document.addEventListener('click', e => {
+  const y = e.target.closest('[data-year]'); if (y){ st.year = y.dataset.year; return render(); }
+  const s = e.target.closest('[data-status]'); if (s){ st.status = s.dataset.status; return render(); }
+  const c = e.target.closest('[data-copy]'); if (c) return copy(c.dataset.copy, 'Tracks copied');
+});
+let qT; $('#q').addEventListener('input', e => { clearTimeout(qT); qT = setTimeout(() => { st.q = e.target.value.trim(); render(); }, 120); });
+$('#refresh').onclick = () => load(true);
+render(); load(false);
+})();
+</script>
+</body>
+</html>
