@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Summer Set Revival</title>
+<meta name="description" content="Reconstructed tracklists from Summer Set Music &amp; Camping Festival 2013 (Somerset WI), in set order, with Spotify / YouTube links.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Bungee&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#05060d; --bg2:#0a0f1c; --panel:rgba(14,20,38,.72); --panel-solid:#0e1426;
+  --line:rgba(150,170,255,.14); --text:#e9ecff; --muted:#9aa3c7; --dim:#6b7398;
+  --lime:#b6ff3b; --cyan:#3ef2ff; --magenta:#ff3fd8; --violet:#9b6bff; --amber:#ffb23e; --pink:#ff6b9d;
+  --spotify:#1ed760; --yt:#ff3d3d;
+  --s-ranch:#ffb23e; --s-sherwood:#3dffa0; --s-tripolee:#ff74ea; --s-forest:#3ef2ff; --s-obs:#9b8bff; --s-silent:#ff7eb6; --s-other:#c0c8ee;
+  --t-confirmed:#3dffa0; --t-identified:#3ef2ff; --t-tour:#ffb23e; --t-era:#b08bff;
+  --r:14px; --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Outfit,system-ui,sans-serif;font-size:15px;line-height:1.45;overflow-x:hidden}
+a{color:inherit}
+::selection{background:var(--magenta);color:#000}
+
+/* ---------- ambient background ---------- */
+#sky{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(1200px 700px at 15% -10%,rgba(155,107,255,.28),transparent 60%),
+  radial-gradient(900px 600px at 95% 10%,rgba(255,63,216,.18),transparent 60%),
+  radial-gradient(1000px 800px at 50% 120%,rgba(61,255,160,.16),transparent 60%),
+  linear-gradient(180deg,#070818 0%,#05060d 55%,#03140f 100%)}
+#sky::after{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg at 50% 50%,rgba(62,242,255,.05),rgba(255,63,216,.06),rgba(182,255,59,.05),rgba(155,107,255,.06),rgba(62,242,255,.05));animation:spin 60s linear infinite;filter:blur(40px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+#flies{position:fixed;inset:0;z-index:-1;pointer-events:none}
+
+/* ---------- hero ---------- */
+header.hero{position:relative;min-height:440px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:56px 16px 150px;overflow:hidden}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--lime);text-shadow:0 0 12px rgba(182,255,59,.6)}
+h1.logo{font-family:'Bungee Shade',cursive;font-weight:400;font-size:clamp(40px,9vw,112px);line-height:1;margin:.25em 0 .1em;letter-spacing:.04em;
+  background:linear-gradient(90deg,var(--cyan),var(--lime),var(--amber),var(--magenta),var(--violet),var(--cyan));background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 12s linear infinite;
+  filter:drop-shadow(0 0 18px rgba(255,63,216,.45)) drop-shadow(0 0 40px rgba(62,242,255,.25))}
+@keyframes shimmer{to{background-position:300% 0}}
+.year{font-family:'Bungee Shade',cursive;font-size:clamp(28px,5vw,54px);color:#fff;text-shadow:0 0 8px #fff,0 0 22px var(--magenta),0 0 44px var(--violet);animation:flicker 7s infinite}
+@keyframes flicker{0%,93%,100%{opacity:1}94%{opacity:.4}95%{opacity:1}97%{opacity:.6}}
+.tag{max-width:640px;color:var(--muted);margin:14px auto 0;font-size:16px}
+.tag b{color:var(--text)}
+.treeline{position:absolute;left:0;right:0;bottom:0;height:170px;pointer-events:none}
+.stats{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+.stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted);backdrop-filter:blur(6px)}
+.stat b{color:var(--text);font-family:var(--mono);margin-right:4px}
+
+
+
+/* ---------- playlists + verification ---------- */
+.pl-wrap{position:relative;display:inline-block}
+.slot:has(.pl-pop),.set:has(.pl-pop){z-index:40}
+.set:has(.pl-pop){position:relative}
+.pl-pop.up{top:auto;bottom:calc(100% + 6px)}
+.pl-pop{position:absolute;z-index:30;top:calc(100% + 6px);left:0;width:min(380px,86vw)}
+.drawer .pl-pop{top:auto;bottom:calc(100% + 6px)}
+.pl-menu{background:var(--panel-solid);border:1px solid rgba(255,63,216,.45);border-radius:14px;padding:8px;box-shadow:0 18px 60px rgba(0,0,0,.6),0 0 24px rgba(255,63,216,.2);display:flex;flex-direction:column;gap:2px}
+.pl-menu .pl-head{font-size:12px;color:var(--muted);padding:4px 8px 8px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.pl-menu .pl-a{all:unset;cursor:pointer;padding:8px 10px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--text);display:flex;flex-direction:column;gap:1px}
+.pl-menu .pl-a small{font-weight:400;font-size:11.5px;color:var(--dim)}
+.pl-menu .pl-a:hover{background:rgba(255,255,255,.06)}
+.pl-menu button{all:unset;cursor:pointer;padding:8px 10px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--text);display:flex;flex-direction:column;gap:1px}
+.pl-menu button small{font-weight:400;font-size:11.5px;color:var(--dim)}
+.pl-menu button:hover{background:rgba(255,255,255,.06)}
+.pl-menu button[disabled]{opacity:.4;cursor:not-allowed}
+.pl-menu .pl-set{color:var(--cyan);font-weight:500;font-size:12.5px;border-top:1px solid var(--line);border-radius:0 0 9px 9px;margin-top:4px}
+.pl-menu .pl-note{font-size:12.5px;color:var(--dim);padding:6px 10px}
+#plProg{position:fixed;right:16px;bottom:16px;z-index:61;background:var(--panel-solid);border:1px solid var(--cyan);color:var(--text);padding:10px 14px;border-radius:12px;font-size:13px;box-shadow:0 0 24px rgba(62,242,255,.25);transform:translateY(120%);opacity:0;transition:.25s}
+#plProg.show{transform:none;opacity:1}
+dialog#plSettings{background:var(--panel-solid);color:var(--text);border:1px solid var(--line);border-radius:16px;max-width:620px;width:calc(100% - 32px);padding:20px 22px;box-shadow:0 30px 90px rgba(0,0,0,.7)}
+dialog#plSettings::backdrop{background:rgba(3,4,10,.7);backdrop-filter:blur(4px)}
+dialog#plSettings h4{margin:0 0 4px;font-family:'Bungee Shade',cursive;font-weight:400;font-size:22px;text-shadow:0 0 12px var(--magenta)}
+dialog#plSettings h5{margin:16px 0 6px;font-size:14px}
+dialog#plSettings p,dialog#plSettings li{font-size:13px;color:var(--muted);line-height:1.5}
+dialog#plSettings ol{padding-left:18px;margin:4px 0}
+dialog#plSettings code{font-family:var(--mono);font-size:12px;background:rgba(255,255,255,.07);padding:1px 6px;border-radius:6px;color:var(--lime);user-select:all}
+dialog#plSettings input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:8px 10px;font:inherit;font-size:13px;margin-top:4px}
+dialog#plSettings .row{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+dialog#plSettings .warn{border:1px solid rgba(255,178,62,.5);color:var(--amber);border-radius:10px;padding:8px 10px;font-size:12.5px;margin-top:8px}
+.vchk{display:inline-flex;gap:4px;align-items:center;font-family:var(--mono);font-size:11px;color:var(--dim);margin-left:8px;white-space:nowrap;cursor:help}
+.vchk i{font-style:normal;font-weight:700}
+.vchk.ok i{color:var(--t-confirmed)}
+.vchk.warn i{color:var(--amber)}
+
+
+/* ---------- suggestions (add missing tracks) ---------- */
+.rpt-chip{font-size:11px;font-family:var(--mono);color:var(--lime);border:1px dashed rgba(182,255,59,.5);border-radius:999px;padding:2px 8px;white-space:nowrap}
+.btn.sug{border-style:dashed;border-color:rgba(182,255,59,.55);color:var(--lime)}
+.btn.sug:hover{box-shadow:0 0 12px rgba(182,255,59,.3)}
+dialog.rpt{background:var(--panel-solid);color:var(--text);border:1px solid var(--line);border-radius:18px;max-width:640px;width:calc(100% - 32px);max-height:calc(100dvh - 32px);padding:0;box-shadow:0 30px 90px rgba(0,0,0,.7),0 0 0 1px color-mix(in srgb,var(--sc,var(--lime)) 25%,transparent);overflow:hidden}
+dialog.rpt[open]{display:flex;flex-direction:column}
+dialog.rpt::backdrop{background:rgba(3,4,10,.72);backdrop-filter:blur(4px)}
+.rpt-f{display:flex;flex-direction:column;min-height:0;flex:1}
+.rpt-card{padding:18px 22px 14px;border-bottom:1px solid var(--line);border-left:4px solid var(--sc,var(--lime));background:radial-gradient(600px 160px at 0 0,color-mix(in srgb,var(--sc,var(--lime)) 22%,transparent),transparent 70%)}
+.rpt-eye{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--lime)}
+.rpt-card h4{margin:6px 0 4px;font-family:Outfit,system-ui,sans-serif;font-weight:700;font-size:24px;letter-spacing:.01em;text-wrap:balance;text-shadow:0 0 18px color-mix(in srgb,var(--sc,var(--lime)) 60%,transparent)}
+.rpt-meta{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:12.5px;color:var(--muted)}
+.rpt-stage{color:var(--sc);font-weight:700;border:1px solid color-mix(in srgb,var(--sc) 55%,transparent);background:color-mix(in srgb,var(--sc) 14%,transparent);border-radius:999px;padding:2px 10px;box-shadow:0 0 10px color-mix(in srgb,var(--sc) 30%,transparent)}
+.rpt-yr{font-family:var(--mono);color:var(--text)}
+.rpt-meta .genre{font-style:italic}
+#rptHave{margin-top:10px;font-size:12.5px}
+#rptHave summary{cursor:pointer;color:var(--cyan);width:max-content}
+#rptHave ol{margin:6px 0 0;padding-left:22px;max-height:150px;overflow:auto;color:var(--muted)}
+#rptHave li{padding:1px 0} #rptHave li span{color:var(--text)}
+#rptHave .tier{font-style:normal;font-size:9.5px;padding:0 5px;margin-left:4px;vertical-align:1px}
+.rpt-body{padding:6px 22px 4px;overflow:auto;min-height:0;flex:1}
+dialog.rpt label{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--muted);margin-top:12px;min-width:0}
+dialog.rpt .lbl{display:flex;gap:8px;align-items:baseline} dialog.rpt .lbl em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--lime)}
+dialog.rpt .hint{font-size:11.5px;color:var(--dim)} dialog.rpt .opt{font-size:11px;color:var(--dim)}
+dialog.rpt code{font-family:var(--mono);font-size:11px;background:rgba(255,255,255,.07);padding:1px 5px;border-radius:5px;color:var(--lime)}
+dialog.rpt input,dialog.rpt select,dialog.rpt textarea{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:9px 11px;font:inherit;font-size:13.5px;width:100%;min-width:0}
+dialog.rpt select option{background:var(--panel-solid);color:var(--text)}
+dialog.rpt input:focus,dialog.rpt select:focus,dialog.rpt textarea:focus{outline:none;border-color:var(--sc,var(--cyan));box-shadow:0 0 0 3px color-mix(in srgb,var(--sc,var(--cyan)) 22%,transparent)}
+dialog.rpt textarea{resize:vertical;font-family:var(--mono);font-size:12.5px;line-height:1.5}
+#rptMsg{font-family:inherit;font-size:13.5px}
+dialog.rpt .two{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+dialog.rpt .mode{font-size:12.5px;color:var(--dim);margin:14px 0 0}
+dialog.rpt .err{color:var(--amber);font-size:13px;min-height:1.2em;margin:6px 0 0}
+dialog.rpt .row{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;padding:12px 22px 16px;border-top:1px solid var(--line)}
+dialog.rpt .btn:focus-visible,dialog.rpt summary:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+#rptPanel{max-width:860px}
+#rptPanel .rv-top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 12px}
+#rptPanel .rv-top span{font-size:12.5px;color:var(--muted);margin-right:auto}
+#rvList{max-height:62vh;overflow:auto;padding-right:4px}
+#rvList h6{margin:14px 0 6px;font-size:14px;color:var(--text)} #rvList h6 span{color:var(--dim);font-weight:400;font-size:12px}
+.rv-item{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px;font-size:13px}
+.rv-meta{color:var(--muted);font-size:12px} .rv-meta a{color:var(--cyan)}
+.rv-item ol{margin:6px 0;padding-left:20px} .rv-pos{font-family:var(--mono);color:var(--dim)}
+.rv-item p{margin:6px 0;color:var(--muted)}
+.rv-act{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.rv-act input{flex:1 1 180px}
+.rv-empty{color:var(--dim);font-size:13px}
+#plProg .x{all:unset;cursor:pointer;margin-left:10px;color:var(--muted)}
+#plProg a{color:var(--cyan)}
+@media (max-width:720px){ dialog.rpt .two{grid-template-columns:1fr} dialog.rpt{width:calc(100% - 16px);max-height:calc(100dvh - 16px)} .rpt-card,.rpt-body{padding-left:16px;padding-right:16px} dialog.rpt .row{padding:10px 16px 12px} dialog.rpt .row .btn{flex:1 1 auto;justify-content:center} }
+
+/* ---------- year switch ---------- */
+.yearsw{display:flex;gap:10px;justify-content:center;margin-top:18px}
+.yearsw button{all:unset;cursor:pointer;font-family:'Bungee Shade',cursive;font-size:clamp(20px,3.4vw,30px);letter-spacing:.08em;padding:8px 22px 6px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:rgba(255,255,255,.03);transition:.25s}
+.yearsw button:hover{color:var(--text);border-color:var(--cyan)}
+.yearsw button[aria-pressed=true]{color:#fff;border-color:transparent;background:linear-gradient(90deg,var(--violet),var(--magenta),var(--amber));box-shadow:0 0 22px rgba(255,63,216,.5),0 0 60px rgba(155,107,255,.3);text-shadow:0 0 8px rgba(255,255,255,.6)}
+.yrs button[aria-pressed=true]{background:linear-gradient(90deg,var(--amber),var(--magenta))}
+body[data-year="2014"] #sky{background:
+  radial-gradient(1100px 650px at 80% -10%,rgba(255,120,60,.26),transparent 60%),
+  radial-gradient(900px 600px at 10% 5%,rgba(255,63,160,.2),transparent 60%),
+  radial-gradient(1000px 800px at 50% 120%,rgba(62,242,200,.16),transparent 60%),
+  linear-gradient(180deg,#140a1c 0%,#06060e 55%,#03140f 100%)}
+
+/* ---------- controls ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:linear-gradient(180deg,rgba(5,6,13,.94),rgba(5,6,13,.82));backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.days{display:flex;gap:4px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:3px}
+.days button{all:unset;cursor:pointer;padding:6px 13px;border-radius:999px;font-weight:600;font-size:13px;color:var(--muted);transition:.2s}
+.days button:hover{color:var(--text)}
+.days button[aria-pressed=true]{background:linear-gradient(90deg,var(--violet),var(--magenta));color:#fff;box-shadow:0 0 16px rgba(255,63,216,.45)}
+.search{flex:1 1 220px;min-width:180px;position:relative}
+.search input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;color:var(--text);padding:8px 14px 8px 34px;font:inherit;font-size:14px;outline:none;transition:.2s}
+.search input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(62,242,255,.15)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.6}
+.btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);transition:.15s;white-space:nowrap}
+.btn:hover{border-color:var(--cyan);box-shadow:0 0 12px rgba(62,242,255,.25)}
+.btn.hot{border-color:rgba(255,63,216,.6)}
+.btn .n{font-family:var(--mono);background:var(--magenta);color:#000;border-radius:999px;padding:0 6px;font-size:11px}
+.chips{max-width:1180px;margin:0 auto;padding:0 16px 10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip{all:unset;cursor:pointer;font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 55%,transparent);color:var(--c);opacity:.45;transition:.15s;user-select:none}
+.chip[aria-pressed=true]{opacity:1;background:color-mix(in srgb,var(--c) 14%,transparent);box-shadow:0 0 10px color-mix(in srgb,var(--c) 35%,transparent)}
+.chips .sep{width:1px;height:18px;background:var(--line);margin:0 4px}
+.chips label{font-size:12px;color:var(--muted);display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.chips input[type=checkbox]{accent-color:var(--magenta)}
+
+/* ---------- main timeline ---------- */
+main{max-width:1180px;margin:0 auto;padding:26px 16px 80px}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:0 0 28px}
+.legend div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;color:var(--muted)}
+.legend b{display:block;color:var(--text);margin-bottom:2px}
+.day{margin:34px 0 10px}
+.day-h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 0 16px;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+.day-h h2{margin:0;font-family:'Bungee Shade',cursive;font-weight:400;font-size:clamp(26px,4vw,40px);letter-spacing:.06em;color:#fff;text-shadow:0 0 14px var(--dc),0 0 34px var(--dc)}
+.day-h .sub{color:var(--muted);font-size:14px}
+.timeline{position:relative;padding-left:84px}
+.timeline::before{content:"";position:absolute;left:66px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,transparent,var(--dc),transparent);opacity:.5}
+.slot{position:relative;margin:0 0 12px}
+.slot .when{position:absolute;left:-84px;top:13px;width:58px;text-align:right;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.slot::before{content:"";position:absolute;left:-23px;top:17px;width:10px;height:10px;border-radius:50%;background:var(--sc);box-shadow:0 0 10px var(--sc),0 0 22px var(--sc)}
+.set{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--sc);border-radius:var(--r);backdrop-filter:blur(8px);transition:border-color .2s, box-shadow .2s;overflow:hidden}
+.set:hover{box-shadow:0 0 0 1px color-mix(in srgb,var(--sc) 40%,transparent),0 8px 40px -12px color-mix(in srgb,var(--sc) 55%,transparent)}
+.set-h{display:grid;grid-template-columns:1fr auto;gap:6px 14px;padding:12px 14px;cursor:pointer;align-items:center}
+.set-h h3{margin:0;font-size:19px;font-weight:700;letter-spacing:.01em}
+.meta{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;color:var(--muted);margin-top:3px}
+.stage{color:var(--sc);font-weight:600}
+.genre{font-style:italic}
+.right{display:flex;align-items:center;gap:10px}
+.cov{display:flex;height:6px;width:90px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.07)}
+.cov i{display:block;height:100%}
+.count{font-family:var(--mono);font-size:12px;color:var(--muted);min-width:62px;text-align:right}
+.chev{transition:transform .25s;opacity:.7}
+.set.open .chev{transform:rotate(180deg)}
+.set-b{display:none;border-top:1px solid var(--line)}
+.set.open .set-b{display:block;animation:fade .25s ease}
+.set.open{overflow:visible}
+@keyframes fade{from{opacity:0;transform:translateY(-4px)}}
+.note{padding:10px 14px 0;font-size:13.5px;color:var(--muted)}
+.note a{color:var(--cyan)}
+.recs{padding:8px 14px 0;display:flex;flex-wrap:wrap;gap:6px}
+.rec{font-size:12px;text-decoration:none;padding:4px 10px;border-radius:999px;border:1px solid rgba(182,255,59,.45);color:var(--lime)}
+.rec:hover{background:rgba(182,255,59,.1)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);text-align:left;font-weight:600;padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl td{padding:7px 8px;border-bottom:1px solid rgba(150,170,255,.07);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tbody tr{transition:background .15s}
+.tbl tbody tr:hover{background:rgba(255,255,255,.035)}
+.tbl .num{font-family:var(--mono);color:var(--dim);width:34px;text-align:right}
+.tbl .ta{color:var(--muted);user-select:all}
+.tbl .tt{font-weight:600;user-select:all}
+.tbl .act{white-space:nowrap;text-align:right;width:1%}
+.tier{display:inline-block;font-size:10.5px;font-family:var(--mono);padding:2px 7px;border-radius:999px;border:1px solid var(--tc);color:var(--tc);white-space:nowrap}
+.tier[data-t=confirmed]{--tc:var(--t-confirmed)} .tier[data-t=identified]{--tc:var(--t-identified)} .tier[data-t=tour]{--tc:var(--t-tour)} .tier[data-t=era]{--tc:var(--t-era)}
+.src{font-size:11px;color:var(--dim);text-decoration:none;margin-left:6px}
+.src:hover{color:var(--cyan)}
+.listen{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;text-decoration:none;padding:4px 10px;border-radius:999px;border:1px solid;transition:.15s}
+.listen.sp{color:var(--spotify);border-color:color-mix(in srgb,var(--spotify) 55%,transparent)}
+.listen.sp:hover{background:var(--spotify);color:#000}
+.listen.yt{color:var(--yt);border-color:color-mix(in srgb,var(--yt) 55%,transparent)}
+.listen.yt:hover{background:var(--yt);color:#fff}
+.listen.q{color:var(--muted);border-color:var(--line);font-weight:600}
+.listen.q:hover{color:var(--text);border-color:var(--cyan)}
+.ib{all:unset;cursor:pointer;width:26px;height:26px;display:inline-grid;place-items:center;border-radius:8px;color:var(--muted);transition:.15s;vertical-align:middle}
+.ib:hover{color:var(--text);background:rgba(255,255,255,.08)}
+.ib.on{color:var(--magenta);text-shadow:0 0 8px var(--magenta)}
+.empty{padding:12px 14px;color:var(--dim);font-size:13.5px;font-style:italic}
+.mini{display:flex;gap:10px;align-items:baseline;padding:4px 12px;border-radius:10px;font-size:13.5px;color:var(--muted);background:rgba(255,255,255,.02);border:1px dashed rgba(150,170,255,.1)}
+.mini b{color:var(--text);font-weight:600}
+.mini .stage{font-size:12px}
+.none{text-align:center;color:var(--muted);padding:60px 0}
+
+/* ---------- mix drawer & toast ---------- */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);z-index:40;background:var(--panel-solid);border-left:1px solid var(--line);box-shadow:-20px 0 60px rgba(0,0,0,.6);transform:translateX(105%);transition:transform .3s ease;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer h4{margin:0;padding:16px;font-family:'Bungee Shade',cursive;font-weight:400;font-size:22px;color:#fff;text-shadow:0 0 12px var(--magenta);display:flex;justify-content:space-between;align-items:center}
+.drawer ol{flex:1;overflow:auto;margin:0;padding:0 16px 0 40px;font-size:14px}
+.drawer li{padding:6px 0;border-bottom:1px solid rgba(150,170,255,.08)}
+.drawer li small{display:block;color:var(--dim);font-size:11.5px}
+.drawer .foot{padding:12px 16px;display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);opacity:0;z-index:60;background:linear-gradient(90deg,var(--violet),var(--magenta));color:#fff;padding:9px 16px;border-radius:999px;font-weight:700;font-size:13.5px;box-shadow:0 8px 30px rgba(255,63,216,.45);transition:.25s;pointer-events:none}
+.toast.show{transform:translate(-50%,0);opacity:1}
+footer{max-width:1180px;margin:0 auto;padding:30px 16px 60px;color:var(--dim);font-size:13px;border-top:1px solid var(--line)}
+footer h5{color:var(--muted);font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin:18px 0 8px}
+footer .srcs{columns:2 280px;gap:24px}
+footer .srcs a{display:block;color:var(--muted);text-decoration:none;font-size:12.5px;padding:2px 0;break-inside:avoid;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+footer .srcs a:hover{color:var(--cyan)}
+
+@media (max-width:720px){
+  .pl-pop{position:fixed;left:12px;right:12px;bottom:12px;top:auto!important;width:auto;z-index:70}
+  .pl-menu{max-height:70vh;overflow:auto}
+  .vchk{margin-left:0;display:flex;margin-top:3px}
+  .bar-in{gap:6px;padding:8px 12px}
+  .bar-in .btn{padding:6px 10px;font-size:12px}
+  .days button{padding:5px 10px}
+  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:0 12px 8px;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent)}
+  .chips::-webkit-scrollbar{display:none}
+  .chip,.chips label{flex:none;white-space:nowrap}
+  .timeline{padding-left:22px}
+  .timeline::before{left:6px}
+  .slot::before{left:-21px}
+  .slot .when{position:static;display:block;text-align:left;width:auto;margin:0 0 4px}
+  .set-h{grid-template-columns:1fr}
+  .right{justify-content:space-between}
+  .tbl .ta{display:block;font-size:12.5px}
+  .tbl thead{display:none}
+  .tbl tr{display:grid;grid-template-columns:28px 1fr auto;gap:2px 8px;padding:8px;border-bottom:1px solid rgba(150,170,255,.07)}
+  .tbl td{border:0;padding:0}
+  .tbl .num{grid-row:span 3;text-align:left}
+  .tbl .tier-c{grid-column:2}
+  .tbl .act{grid-column:3;text-align:right}
+  .tbl .tier-c{align-self:center}
+  .tbl .tt{grid-column:2 / 4}
+  .tbl .ta{grid-column:2 / 4}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---- Summer Set theme: neon-80s Wisconsin summer sunset ---- */
+:root{--bg:#1a0b2e;--bg2:#2b0f47;--panel:rgba(40,14,64,.74);--panel-solid:#2b0f47;--line:rgba(255,209,102,.2);--text:#fff4e0;--muted:#dcbfd8;--dim:#a88aa8;
+ --lime:#ffd166;--cyan:#21e6c1;--magenta:#ff4d8d;--violet:#8a5cff;--amber:#ff8a3d;--pink:#ff6b9d;
+ --s-ranch:#ff8a3d;--s-sherwood:#21e6c1;--s-tripolee:#ff4d8d;--s-other:#c9b6e8;--s-forest:#ffd166;--s-obs:#8a5cff;--s-silent:#ff6b9d}
+body{font-family:Outfit,system-ui,sans-serif}
+#sky{background:radial-gradient(900px 600px at 50% 105%,rgba(255,106,61,.55),transparent 65%),radial-gradient(1000px 600px at 90% 0,rgba(255,77,141,.25),transparent 60%),linear-gradient(180deg,#1a0b2e 0%,#3a0f5c 38%,#8c2260 72%,#d4503f 100%)}
+#sky::after{background:none}
+h1.logo{font-family:'Bungee Shade',cursive;letter-spacing:.02em;font-size:clamp(46px,11vw,128px)}
+.year,.yearsw button,.bar .btn,.set h3{font-family:Bungee,sans-serif}
+.yearsw,.yrs,#summersetLink{display:none!important}
+header.hero>*{position:relative;z-index:1}
+header.hero>.treeline{position:absolute;z-index:1}
+.hero::before{content:"";position:absolute;left:50%;bottom:-210px;z-index:0;width:min(520px,90vw);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;
+ background:repeating-linear-gradient(180deg,#ffd166 0 12px,transparent 12px 19px),radial-gradient(circle,#ffd166,#ff4d8d);-webkit-mask:linear-gradient(#000 55%,transparent);mask:linear-gradient(#000 55%,transparent);opacity:.5;pointer-events:none}
+</style>
+</head>
+<body>
+<div id="sky"></div>
+<canvas id="flies"></canvas>
+
+<header class="hero">
+  <div class="kicker" id="kicker"></div>
+  <h1 class="logo">Summer Set</h1>
+  <div class="year" id="yearTxt"></div>
+  <div class="yearsw" role="group" aria-label="Festival year"></div>
+  <p class="tag" id="tagline"></p>
+  <div class="stats" id="stats"></div>
+  <svg class="treeline" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="tg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2b0f47"/><stop offset="1" stop-color="#05060d"/></linearGradient>
+      <filter id="glow"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <g id="lights" filter="url(#glow)"></g>
+    <path id="trees" fill="url(#tg)"></path>
+  </svg>
+</header>
+
+<div class="bar">
+  <div class="bar-in">
+    <a class="btn" id="summersetLink" href="summerset.html" title="Summer Set 2013 (Somerset, WI)">Summer Set 2013</a>
+    <a class="btn" id="missingLink" href="index.html" title="Back to the Electric Forest Revival page">&larr; Electric Forest</a>
+    <div class="days yrs" role="group" aria-label="Year"></div>
+    <div class="days" role="group" aria-label="Day" id="days"></div>
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search artists or tracks…  (press / )" autocomplete="off">
+    </div>
+    <button class="btn" id="expand">Expand all</button>
+    <button class="btn" id="copyAll" title="Copy every visible track as text">Copy visible</button>
+    <button class="btn sug" data-report="" title="Suggest a set or act that isn't listed">Suggest a set</button>
+    <button class="btn" id="rptReview" hidden>Review suggestions</button>
+    <button class="btn hot" id="mixBtn">My Summer Mix <span class="n" id="mixN">0</span></button>
+  </div>
+  <div class="chips" id="chips"></div>
+</div>
+
+<main>
+  <section class="legend" id="legend"></section>
+  <div id="list"></div>
+</main>
+
+<aside class="drawer" id="drawer" aria-label="My Summer Mix">
+  <h4>My Summer Mix <button class="ib" id="closeMix" aria-label="Close">✕</button></h4>
+  <ol id="mixList"></ol>
+  <div class="foot">
+    <button class="btn" id="mixCopy">Copy as text</button>
+    <button class="btn" id="mixLinks">Copy with links</button>
+    <span class="pl-wrap"><button class="btn hot" data-plmenu="mix" data-id="">Playlist ▾</button></span>
+    <button class="btn" id="mixClear">Clear</button>
+  </div>
+</aside>
+<div class="toast" id="toast"></div>
+<div id="plProg"></div>
+<dialog class="rpt" id="rptForm" aria-labelledby="rptName">
+  <form method="dialog" class="rpt-f" novalidate>
+  <header class="rpt-card">
+    <div class="rpt-eye">+ Add missing tracks</div>
+    <h4 id="rptName"></h4>
+    <div class="rpt-meta" id="rptMeta"></div>
+    <details id="rptHave"><summary id="rptHaveSum"></summary><ol id="rptHaveList"></ol></details>
+  </header>
+  <div class="rpt-body">
+    <div class="two" id="rptArtistRow">
+      <label for="rptArtist">Who played?<input id="rptArtist" placeholder="Act or DJ" autocomplete="off" maxlength="120"></label>
+      <label for="rptWhen">When &amp; where (if you remember)<input id="rptWhen" placeholder="e.g. Saturday night, Forest Stage" autocomplete="off" maxlength="120"></label>
+    </div>
+    <div class="two">
+      <label for="rptKind">What's this about?<select id="rptKind"><option value="missing">Missing track(s)</option><option value="wrong">Wrong track listed</option><option value="order">Wrong order</option><option value="set">Missing set / act</option><option value="other">Something else</option></select></label>
+      <label for="rptEvidence">How do you know?<select id="rptEvidence"><option value="there">I was there</option><option value="recording">Recording / video of the set</option><option value="tracklist">Tracklist site</option><option value="other">Other</option></select></label>
+    </div>
+    <label for="rptTracks"><span class="lbl">Tracks <em id="rptCount"></em></span><span class="hint">One per line as <code>Artist - Title</code>. Put a number first to place it in the set, e.g. <code>12. Knife Party - LRAD</code></span><textarea id="rptTracks" rows="5" placeholder="Knife Party - LRAD&#10;14. Zomboy - Organ Donor" spellcheck="false"></textarea></label>
+    <label for="rptUrl"><span class="lbl">Source link <span class="opt">optional</span></span><input id="rptUrl" type="url" inputmode="url" placeholder="https://youtube.com/watch?v=… (a timestamp helps)" autocomplete="off" maxlength="500"></label>
+    <label for="rptMsg"><span class="lbl">Anything else? <span class="opt">optional</span></span><textarea id="rptMsg" rows="2" placeholder="e.g. They closed with this right after the fireworks" maxlength="2000"></textarea></label>
+    <p class="mode" id="rptMode"></p>
+    <p class="err" id="rptErr" role="alert" aria-live="polite"></p>
+  </div>
+  <footer class="row">
+    <button type="button" class="btn" id="rptCancel">Cancel</button>
+    <button type="button" class="btn" id="rptCopy">Copy report</button>
+    <button type="button" class="btn hot" id="rptSend">Send suggestion</button>
+    <a class="btn hot" id="rptGh" href="#" target="_blank" rel="noopener">Send on GitHub ↗</a>
+  </footer>
+  </form>
+</dialog>
+<dialog class="rpt" id="rptPanel" aria-label="Review suggestions">
+  <h4>Suggestions</h4>
+  <div class="rv-top"><span id="rvCounts"></span>
+    <select id="rvYear" aria-label="Year"><option value="all">All years</option><option>2013</option><option>2014</option></select>
+    <select id="rvFilter" aria-label="Status"><option value="new">New</option><option value="accepted">Accepted</option><option value="merged">Merged</option><option value="rejected">Rejected</option><option value="all">All</option></select>
+    <button class="btn" id="rvExport">Copy accepted (JSON)</button><button class="btn" id="rvClose">Close</button></div>
+  <div id="rvList"></div>
+</dialog>
+
+<dialog id="plSettings" aria-label="Playlist settings">
+  <h4>Playlist settings</h4>
+  <p><b>Play on YouTube now</b> needs nothing: it opens the set as a YouTube playlist (up to 50 videos per part). Saving into <i>your own</i> account needs a one-time, free app ID from YouTube or Spotify, because only you can sign in to your account. The IDs and sign-ins stay in this browser.</p>
+  <div class="warn" id="plWarn" hidden>Signing in needs the page served at <code>http://127.0.0.1:8613/</code>. Run <code>python -m http.server 8613 --bind 127.0.0.1</code> in this folder and open that address. Spotify doesn't accept <code>file://</code> or <code>localhost</code> addresses.</div>
+  <h5>Spotify <small style="color:var(--dim)">(<span id="spState"></span>)</small></h5>
+  <ol>
+    <li>Go to <code>developer.spotify.com/dashboard</code>, choose <b>Create app</b>, and tick <b>Web API</b>.</li>
+    <li>Add this Redirect URI: <code id="spRedirect"></code></li>
+    <li>Copy the app's <b>Client ID</b> here. No secret is needed: the page uses PKCE.</li>
+  </ol>
+  <input id="spCid" placeholder="Spotify Client ID" autocomplete="off" spellcheck="false">
+  <h5>YouTube</h5>
+  <ol>
+    <li>In <code>console.cloud.google.com</code>, create a project and enable <b>YouTube Data API v3</b>.</li>
+    <li>Set up the OAuth consent screen (External, Testing) and add your Google account as a test user.</li>
+    <li>Under Credentials, create an <b>OAuth client ID</b> (Web application) with this Authorized JavaScript origin: <code id="ytOrigin"></code></li>
+  </ol>
+  <p>YouTube's free quota allows about 190 added tracks per day. If a long set runs out, the playlist keeps what was added and the next save resumes where it stopped.</p>
+  <input id="ytCid" placeholder="Google OAuth Client ID (….apps.googleusercontent.com)" autocomplete="off" spellcheck="false">
+  <div class="row"><button class="btn" id="spOut">Sign out of Spotify</button><button class="btn" id="plClose">Cancel</button><button class="btn hot" id="plSave">Save</button></div>
+</dialog>
+
+
+<footer>
+  <div id="method"></div>
+  <h5>Sources</h5>
+  <div class="srcs" id="srcs"></div>
+</footer>
+
+<script type="application/json" id="data">{"generated":"2026-10-15","years":{"2013":{"dates":"August 9 – 11, 2013","tagline":"What <b>Summer Set<\/b> played in 2013 on the hills of Somerset, Wisconsin: <b>Passion Pit, Girl Talk, STS9, Big Gigantic, Common and Big Boi<\/b>. No official timetable survives online, so sets sit on a day only where a named source says so, and every track carries a tier label.","schedule_source":"https://consequence.net/festival/summer-set-music-camping-festival-2013/","method":"The lineup comes from the festival's 2013 announcement as listed by Consequence; days and times come from press previews (Grateful Web, The Current, Jambands) where they name one. No official 2013 timetable could be found, so acts without a sourced day are listed under TBA.","days":[{"k":"Fri","name":"Friday","date":"August 9","sub":"Big Gigantic · Big Boi · Gigantic Underground Conspiracy after-party"},{"k":"Sat","name":"Saturday","date":"August 10","sub":"Girl Talk · Papadosio · EOTO after-party"},{"k":"Sun","name":"Sunday","date":"August 11","sub":"Madeon · Tritonal · STS9 close the weekend"},{"k":"TBA","name":"TBA","date":"Aug 9–11","sub":"On the 2013 bill, day not confirmed by any source found"}],"schedule":[{"day":"TBA","artist":"Adventure Club","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Alex Metric","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Beats Antique","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Blackalicious","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Conspirator","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Dessa","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Digital Tape Machine","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Diplo","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Figure","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Flosstradamus","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Greensky Bluegrass","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Griz","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Keys N Krates","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Kill Paris","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Krewella","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Morgan Page","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Orchard Lounge","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Passion Pit","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Polica","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Ryan Hemsworth","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"SBTRKT (DJ Set)","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"STRFKR","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"The 4onthefloor","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Tommy Trash","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Wick-It the Instigator","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Wolfgang Gartner","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Zedd","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Zomboy","stage":"Unconfirmed","start":"","end":""},{"day":"TBA","artist":"Common","stage":"Unconfirmed","start":"","end":""}],"sets":[{"artist":"The Wailers","sched":null,"day":"Fri","stage":"Unconfirmed","start":"","end":"","genre":"","notes":"Hour-long set.","notes_source":"https://www.gratefulweb.com/articles/summer-set-festival-2013-preview/","recordings":null,"tracks":[]},{"artist":"Gigantic Underground Conspiracy","sched":null,"day":"Fri","stage":"Unconfirmed","start":"","end":"","genre":"","notes":"Late-night after party, midnight to 2:30am.","notes_source":"https://jambands.com/news/2013/06/22/summer-set-confirms-after-parties-with-eoto-gigantic-underground-conspiracy/","recordings":null,"tracks":[]},{"artist":"Big Gigantic","sched":null,"day":"Fri","stage":"Unconfirmed","start":null,"end":null,"genre":"Livetronica / electronic","notes":"Tracks from Big Gigantic's Jul 31, 2013 show at D.C. Armory, Washington DC (4 songs listed)","notes_source":"https://www.setlist.fm/setlist/big-gigantic/2013/dc-armory-washington-dc-bcfdd46.html","recordings":null,"tracks":[{"n":1,"artist":"Big Gigantic","title":"It's Goin Down","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-gigantic/2013/dc-armory-washington-dc-bcfdd46.html","source_note":"Setlist from D.C. Armory, Washington, DC, Jul 31, 2013","youtube":"https://www.youtube.com/watch?v=mM301rD5raA","youtube_label":"Big Gigantic - It's Goin Down","chk":"ok"},{"n":2,"artist":"Kanye West","title":"Get Em High","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-gigantic/2013/dc-armory-washington-dc-bcfdd46.html","source_note":"Setlist from D.C. Armory, Washington, DC, Jul 31, 2013","youtube":"https://www.youtube.com/watch?v=R5dpuoCzudI","youtube_label":"Kanye West - Get 'Em High (Official HQ Video) (feat. Common & Talib Kweli)","chk":"ok"},{"n":3,"artist":"Macklemore & Ryan Lewis","title":"Can't Hold Us","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-gigantic/2013/dc-armory-washington-dc-bcfdd46.html","source_note":"Setlist from D.C. Armory, Washington, DC, Jul 31, 2013","youtube":"https://www.youtube.com/watch?v=2zNSgSzhBfM","youtube_label":"MACKLEMORE & RYAN LEWIS - CAN'T HOLD US FEAT. RAY DALTON (OFFICIAL MUSIC VIDEO)","chk":"ok"},{"n":4,"artist":"Big Gigantic","title":"Sky High","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-gigantic/2013/dc-armory-washington-dc-bcfdd46.html","source_note":"Setlist from D.C. Armory, Washington, DC, Jul 31, 2013","youtube":"https://www.youtube.com/watch?v=xPrgVald-fc","youtube_label":"Big Gigantic- Sky High","chk":"ok"}]},{"artist":"Big Boi","sched":null,"day":"Fri","stage":"Unconfirmed","start":null,"end":null,"genre":"Hip hop","notes":"Tracks from Big Boi's Jul 12, 2013 show at Forecastle Festival, Louisville KY (first 20 of 25 songs; opening medley omitted)","notes_source":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","recordings":null,"tracks":[{"n":1,"artist":"Big Boi","title":"Apple of My Eye","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=swWT2UcDv2c","youtube_label":"Big Boi - Apple Of My Eye (Explicit)","chk":"ok"},{"n":2,"artist":"Big Boi","title":"CPU","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=0DXJQbEkZnQ","youtube_label":"Big Boi Ft. Phantogram - CPU","chk":"ok"},{"n":3,"artist":"Big Boi","title":"Shutterbugg","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=rWsvkW6rKkQ","youtube_label":"Big Boi - Shutterbugg ft. Cutty","chk":"ok"},{"n":4,"artist":"Big Boi","title":"General Patton","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=h_1ivdW8Yj4","youtube_label":"Big Boi - General Patton","chk":"ok"},{"n":5,"artist":"Big Boi","title":"Follow Us","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=UryzYsFPWu4","youtube_label":"Big Boi - Follow Us (Explicit) ft. Vonnegutt","chk":"ok"},{"n":6,"artist":"Big Boi","title":"Daddy Fat Sax","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)"},{"n":7,"artist":"OutKast","title":"GhettoMusick","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=EAgfrE28gpc","youtube_label":"Outkast - GhettoMusick (Official HD Video)","chk":"ok"},{"n":8,"artist":"OutKast","title":"B.O.B.","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=lVehcuJXe6I","youtube_label":"Outkast - B.O.B. (Bombs Over Baghdad) (Official HD Video)","chk":"ok"},{"n":9,"artist":"OutKast","title":"So Fresh, So Clean","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=-JfEJq56IwI","youtube_label":"Outkast - So Fresh, So Clean (Official HD Video)","chk":"ok"},{"n":10,"artist":"OutKast","title":"Ms. Jackson","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=MYxAiK6VnXw","youtube_label":"Outkast - Ms. Jackson (Official HD Video)","chk":"ok"},{"n":11,"artist":"OutKast","title":"Gangsta Shit","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=ETqZgZ9XcHI","youtube_label":"Outkast - Gangsta Shit (Original Version)","chk":"ok"},{"n":12,"artist":"C-Bone","title":"College Park","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=y-uhRX1RQ24","youtube_label":"College Park - Blackowned C-Bone (Feat Jermaine Dupri)","chk":"ok"},{"n":13,"artist":"Killer Mike","title":"Ready Set Go","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=00FL7TpCdy8","youtube_label":"Killer Mike feat. T.I. Ready set go (Dirty) Official video","chk":"ok"},{"n":14,"artist":"OutKast","title":"The Whole World","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=udmTfK6_aM8","youtube_label":"Outkast - The Whole World (Official HD Video) ft. Killer Mike","chk":"ok"},{"n":15,"artist":"Sleepy Brown","title":"I Can't Wait","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=k_7bV9fUnrc","youtube_label":"Sleepy Brown - I Can't Wait [TheWraith]","chk":"ok"},{"n":16,"artist":"Big Boi","title":"Thom Pettie","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=uW-Fwb60kkE","youtube_label":"Big Boi - Thom Pettie (Explicit) ft. Little Dragon, Killer Mike","chk":"ok"},{"n":17,"artist":"OutKast","title":"The Way You Move","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=xI5NQ-0Ubfs","youtube_label":"Outkast - The Way You Move (Official HD Video) ft. Sleepy Brown","chk":"ok"},{"n":18,"artist":"Big Boi","title":"Mama Told Me","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=CRUVMg6yvCs","youtube_label":"Big Boi - Mama Told Me (Explicit) ft. Kelly Rowland","chk":"ok"},{"n":19,"artist":"OutKast","title":"Southernplayalisticadillacmuzik","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=0yPagRrAgIU","youtube_label":"Outkast - Southernplayalisticadillacmuzik (Clean Version - Official HD Video)","chk":"ok"},{"n":20,"artist":"OutKast","title":"Player's Ball","confidence":"tour","source_url":"https://www.setlist.fm/setlist/big-boi/2013/waterfront-park-louisville-ky-5bc6bba8.html","source_note":"Setlist from Waterfront Park, Louisville, KY, Jul 12, 2013 (Forecastle Festival)","youtube":"https://www.youtube.com/watch?v=vFofKGKlWo4","youtube_label":"Outkast - Player's Ball (Official HD Video)","chk":"ok"}]},{"artist":"The Werks","sched":null,"day":"Fri","stage":"Unconfirmed","start":null,"end":null,"genre":"Jam band / rock","notes":"Tracks from The Werks' Jul 20, 2013 set at All Good Music Festival, Thornville OH","notes_source":"https://www.setlist.fm/setlist/the-werks/2013/legend-valley-concert-venue-and-campground-thornville-oh-1bc69df8.html","recordings":null,"tracks":[{"n":1,"artist":"The Werks","title":"Duck Farm","confidence":"tour","source_url":"https://www.setlist.fm/setlist/the-werks/2013/legend-valley-concert-venue-and-campground-thornville-oh-1bc69df8.html","source_note":"Setlist from Legend Valley, Thornville, OH, Jul 20, 2013 (All Good Music Festival)","youtube":"https://www.youtube.com/watch?v=DJfkM37j4oY","youtube_label":"The Werks 'Duck Farm' Official AURA Music Festival 2016 [4K/HQ/HD]","chk":"ok"},{"n":2,"artist":"The Werks","title":"Fat Man","confidence":"tour","source_url":"https://www.setlist.fm/setlist/the-werks/2013/legend-valley-concert-venue-and-campground-thornville-oh-1bc69df8.html","source_note":"Setlist from Legend Valley, Thornville, OH, Jul 20, 2013 (All Good Music Festival)","youtube":"https://www.youtube.com/watch?v=uA68ELu9E9s","youtube_label":"The Werks - “Fat Man\"","chk":"ok"},{"n":3,"artist":"The Beatles","title":"With a Little Help From My Friends","confidence":"tour","source_url":"https://www.setlist.fm/setlist/the-werks/2013/legend-valley-concert-venue-and-campground-thornville-oh-1bc69df8.html","source_note":"Setlist from Legend Valley, Thornville, OH, Jul 20, 2013 (All Good Music Festival)","youtube":"https://www.youtube.com/watch?v=0C58ttB2-Qg","youtube_label":"With A Little Help From My Friends (Remastered 2009)","chk":"ok"},{"n":4,"artist":"The Werks","title":"Hard to Find","confidence":"tour","source_url":"https://www.setlist.fm/setlist/the-werks/2013/legend-valley-concert-venue-and-campground-thornville-oh-1bc69df8.html","source_note":"Setlist from Legend Valley, Thornville, OH, Jul 20, 2013 (All Good Music Festival)","youtube":"https://www.youtube.com/watch?v=HwAdsllFUbY","youtube_label":"The Werks \"Hard To Find\" jam 12/31/2011 LC pavillion","chk":"ok"},{"n":5,"artist":"The Werks","title":"You're Not Alone","confidence":"tour","source_url":"https://www.setlist.fm/setlist/the-werks/2013/legend-valley-concert-venue-and-campground-thornville-oh-1bc69df8.html","source_note":"Setlist from Legend Valley, Thornville, OH, Jul 20, 2013 (All Good Music Festival)","youtube":"https://www.youtube.com/watch?v=3LF0LJIAqjY","youtube_label":"The Werks - April 19, 2013 - You're Not Alone","chk":"ok"},{"n":6,"artist":"The Werks","title":"Galactic Passport","confidence":"tour","source_url":"https://www.setlist.fm/setlist/the-werks/2013/legend-valley-concert-venue-and-campground-thornville-oh-1bc69df8.html","source_note":"Setlist from Legend Valley, Thornville, OH, Jul 20, 2013 (All Good Music Festival)","youtube":"https://www.youtube.com/watch?v=nqmA-YFgNGc","youtube_label":"The Werks - Galactic Passport at Red Rocks 2016","chk":"ok"}]},{"artist":"Papadosio","sched":null,"day":"Sat","stage":"Main stage","start":"3:00pm","end":"","genre":"","notes":"Time from the pre-festival preview.","notes_source":"https://www.setlist.fm/setlist/papadosio/2013/somerset-amphitheater-somerset-wi-usa-23eef81b.html","recordings":null,"tracks":[{"n":1,"artist":"Papadosio","title":"The Bionic Man Meets His Past...","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/papadosio/2013/somerset-amphitheater-somerset-wi-usa-23eef81b.html","youtube":"https://www.youtube.com/watch?v=1ONnl5we1Tg","youtube_label":"Papadosio - The Bionic Man meets his past - (T.E.T.I.O.S.)","chk":"ok"},{"n":2,"artist":"Papadosio","title":"We Are Water","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/papadosio/2013/somerset-amphitheater-somerset-wi-usa-23eef81b.html","youtube":"https://www.youtube.com/watch?v=ZjzSbiqlSZs","youtube_label":"'We Are Water' • Papadosio • Terminal West ATL • Live HD","chk":"ok"},{"n":3,"artist":"Papadosio","title":"Find Your Cloud","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/papadosio/2013/somerset-amphitheater-somerset-wi-usa-23eef81b.html","youtube":"https://www.youtube.com/watch?v=Sa4DMum7xnI","youtube_label":"Papadosio - Find Your Cloud  - (T.E.T.I.O.S.)","chk":"ok"},{"n":4,"artist":"Papadosio","title":"Hippie Babysitter","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/papadosio/2013/somerset-amphitheater-somerset-wi-usa-23eef81b.html","youtube":"https://www.youtube.com/watch?v=Axt2cEDBeEo","youtube_label":"Papadosio - Hippie Babysitter - (Observations)","chk":"ok"},{"n":5,"artist":"Papadosio","title":"Taking Turns","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/papadosio/2013/somerset-amphitheater-somerset-wi-usa-23eef81b.html","youtube":"https://www.youtube.com/watch?v=SHHxsJ7mi7I","youtube_label":"Papadosio - Taking Turns - Night & Day (Live)","chk":"ok"},{"n":6,"artist":"Papadosio","title":"Method of Control","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/papadosio/2013/somerset-amphitheater-somerset-wi-usa-23eef81b.html","youtube":"https://www.youtube.com/watch?v=Ya3a0_gz1io","youtube_label":"Papadosio - Method of Control","chk":"ok"},{"n":7,"artist":"Papadosio","title":"Cue","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/papadosio/2013/somerset-amphitheater-somerset-wi-usa-23eef81b.html","spotify":"https://open.spotify.com/track/3J0KJs5vCyXjjUYTEvlpQo","spotify_label":"Papadosio - Cue","youtube":"https://www.youtube.com/watch?v=QGQRnrFiIAs","youtube_label":"Papadosio - Cue  - (T.E.T.I.O.S.)","len":"8:37","yr":"2012","chk":"ok"}]},{"artist":"BoomBox","sched":null,"day":"Sat","stage":"Grove Stage","start":"4:30pm","end":"","genre":"","notes":"Time from the pre-festival preview.","notes_source":"https://www.musicfestivalwizard.com/festivals/summer-set-music-festival-2013/","recordings":null,"tracks":[]},{"artist":"Doomtree","sched":null,"day":"Sat","stage":"Unconfirmed","start":"","end":"","genre":"","notes":"Main stage, starting at 7.","notes_source":"https://www.gratefulweb.com/articles/summer-set-festival-2013-preview/","recordings":null,"tracks":[]},{"artist":"Girl Talk","sched":null,"day":"Sat","stage":"Unconfirmed","start":"","end":"","genre":"","notes":"Setlist.fm entry exists but has no songs yet.","notes_source":"https://www.setlist.fm/setlist/girl-talk/2013/somerset-amphitheater-somerset-wi-usa-53cfcb79.html","recordings":null,"tracks":[]},{"artist":"EOTO","sched":null,"day":"Sat","stage":"Unconfirmed","start":"","end":"","genre":"","notes":"Late-night after party, midnight to 2:30am.","notes_source":"https://jambands.com/news/2013/06/22/summer-set-confirms-after-parties-with-eoto-gigantic-underground-conspiracy/","recordings":null,"tracks":[]},{"artist":"Tritonal","sched":null,"day":"Sun","stage":"Grove Stage","start":"6:00pm","end":"","genre":"","notes":"Time from the pre-festival preview.","notes_source":"https://www.gratefulweb.com/articles/summer-set-festival-2013-preview/","recordings":null,"tracks":[]},{"artist":"STS9","sched":null,"day":"Sun","stage":"Main stage","start":"8:30pm","end":"","genre":"","notes":"Festival closer. 11 songs on setlist.fm.","notes_source":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","recordings":null,"tracks":[{"n":1,"artist":"STS9","title":"Be Nice","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","youtube":"https://www.youtube.com/watch?v=3_k85n340kU","youtube_label":"STS9 - \"Be Nice\" - Chicago, IL - 08.17.13","chk":"ok"},{"n":2,"artist":"STS9","title":"March","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","youtube":"https://www.youtube.com/watch?v=poy33cd6mCI","youtube_label":"STS9 - March (Live at Belly Up :: 2.15.2020)","chk":"ok"},{"n":3,"artist":"STS9","title":"Golden Gate","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","youtube":"https://www.youtube.com/watch?v=49mzArKZ6uI","youtube_label":"STS9 - Golden Gate (Live @ Red Rocks 2021)","chk":"ok"},{"n":4,"artist":"STS9","title":"Vibyl","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","youtube":"https://www.youtube.com/watch?v=RqiZ9iTxGV0","youtube_label":"STS9 - Vibyl (Official Audio)","chk":"ok"},{"n":5,"artist":"STS9","title":"Kabuki","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","youtube":"https://www.youtube.com/watch?v=ETBtE4qrqV0","youtube_label":"STS9 - \"Kabuki\" - Atlanta, GA - 08.24.13","len":"5:34","yr":"~2014","chk":"ok"},{"n":6,"artist":"STS9","title":"Move My Peeps","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","spotify":"https://open.spotify.com/track/3y4wFXpcbf7cZt800N4n5X","spotify_label":"STS9 - Move My Peeps (New Orleans - 03.14.15)","youtube":"https://www.youtube.com/watch?v=PeG4Vs-jzYQ","youtube_label":"5 - Move My Peeps - STS9 Live at Red Rocks 2011-09-10","len":"10:28","yr":"2015","chk":"warn","why":["long version (10:28)","this Spotify copy is from 2015: a later reissue, or possibly a different version"]},{"n":7,"artist":"STS9","title":"Hidden Hand, Hidden Fist","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","youtube":"https://www.youtube.com/watch?v=IyJUd9Ps3Us","youtube_label":"STS9 - Hidden Hand, Hidden Fist (Official Audio)","chk":"ok"},{"n":8,"artist":"STS9","title":"When the Dust Settles","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","spotify":"https://open.spotify.com/track/2dLIaCfycKpgsTZlWnFIcX","spotify_label":"STS9 - When the Dust Settles","youtube":"https://www.youtube.com/watch?v=EbwxVUQHqTA","youtube_label":"STS9 - When The Dust Settles (Official Audio)","len":"7:30","yr":"2011","chk":"ok"},{"n":9,"artist":"STS9","title":"Inspire Strikes Back","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","spotify":"https://open.spotify.com/track/0CKsA2IFBgAnnmgG80USYn","spotify_label":"STS9 - Inspire Strikes Back","youtube":"https://www.youtube.com/watch?v=ZnFc-hUP3LQ","youtube_label":"STS9 - \"Inspire Strikes Back\" - Atlanta, GA - 08.24.13","len":"8:07","yr":"2000","chk":"ok"},{"n":10,"artist":"STS9","title":"20-12","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","youtube":"https://www.youtube.com/watch?v=AIy7Iy2AFyA","youtube_label":"STS9 - 20-12 (Live @ Red Rocks 2021)","chk":"ok"},{"n":11,"artist":"STS9","title":"Scheme","confidence":"confirmed","source_url":"https://www.setlist.fm/setlist/sound-tribe-sector-9/2013/somerset-amphitheater-somerset-wi-usa-23e0e4ff.html","youtube":"https://www.youtube.com/watch?v=WbcPpIq-0dk","youtube_label":"STS9 - Scheme (Official Audio)","chk":"ok"}]},{"artist":"Pert Near Sandstone","sched":null,"day":"Sun","stage":"The Saloon","start":"","end":"","genre":"","notes":"","notes_source":"https://www.gratefulweb.com/articles/summer-set-festival-2013-preview/","recordings":null,"tracks":[]},{"artist":"Jon Wayne and the Pain","sched":null,"day":"Sun","stage":"The Saloon","start":"","end":"","genre":"","notes":"Half-hour set Sunday night.","notes_source":"https://www.gratefulweb.com/articles/summer-set-festival-2013-preview/","recordings":null,"tracks":[]},{"artist":"Madeon","sched":null,"day":"Sun","stage":"Unconfirmed","start":"","end":"","genre":"","notes":"Setlist.fm entry exists but has no songs yet.","notes_source":"https://www.setlist.fm/setlist/madeon/2013/somerset-amphitheater-somerset-wi-usa-7b74f6ec.html","recordings":null,"tracks":[]},{"artist":"Passion Pit","sched":"Passion Pit","day":"TBA","stage":"Unconfirmed","start":"","end":"","genre":"Indie pop / electropop","notes":"Tracks from Passion Pit's Jul 12, 2013 show at Downsview Park, Toronto ON","notes_source":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","recordings":null,"tracks":[{"n":1,"artist":"Passion Pit","title":"The Reeling","confidence":"tour","source_url":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","source_note":"Setlist from Downsview Park, Toronto, ON, Jul 12, 2013","spotify":"https://open.spotify.com/track/5noQJkpVfHt2D4df2GXieV","spotify_label":"Passion Pit - The Reeling","youtube":"https://www.youtube.com/watch?v=9U-Ul5qnLeQ","youtube_label":"Passion Pit - The Reeling","len":"4:47","yr":"2009","chk":"ok"},{"n":2,"artist":"Passion Pit","title":"Carried Away","confidence":"tour","source_url":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","source_note":"Setlist from Downsview Park, Toronto, ON, Jul 12, 2013","spotify":"https://open.spotify.com/track/52a6VcF23v5HB7KfDEmBHq","spotify_label":"Passion Pit - Carried Away","youtube":"https://www.youtube.com/watch?v=DiEwJTOderQ","youtube_label":"Passion Pit - Carried Away (Official Video)","len":"3:42","yr":"2012","chk":"ok"},{"n":3,"artist":"Passion Pit","title":"To Kingdom Come","confidence":"tour","source_url":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","source_note":"Setlist from Downsview Park, Toronto, ON, Jul 12, 2013","spotify":"https://open.spotify.com/track/048AQ5XBnvStuTn7X2pGSY","spotify_label":"Passion Pit - To Kingdom Come","youtube":"https://www.youtube.com/watch?v=xh0ueJN5rvA","youtube_label":"Passion Pit - To Kingdom Come","len":"4:07","yr":"2009","chk":"ok"},{"n":4,"artist":"Passion Pit","title":"It's Not My Fault, I'm Happy","confidence":"tour","source_url":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","source_note":"Setlist from Downsview Park, Toronto, ON, Jul 12, 2013","spotify":"https://open.spotify.com/track/1zS85RlXiRuTiWpDIOhICA","spotify_label":"Passion Pit - It's Not My Fault, I'm Happy","youtube":"https://www.youtube.com/watch?v=ygZdOKY-LPg","youtube_label":"Passion Pit - It's Not My Fault, I'm Happy (HD)","len":"5:05","yr":"2012","chk":"ok"},{"n":5,"artist":"Passion Pit","title":"Mirrored Sea","confidence":"tour","source_url":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","source_note":"Setlist from Downsview Park, Toronto, ON, Jul 12, 2013","spotify":"https://open.spotify.com/track/2NvAdwDIQ71uXIWZkr6tIO","spotify_label":"Passion Pit - Mirrored Sea","youtube":"https://www.youtube.com/watch?v=KWjAG5Z9HVo","youtube_label":"Passion Pit - Mirrored Sea","len":"4:06","yr":"2012","chk":"ok"},{"n":6,"artist":"Passion Pit","title":"I'll Be Alright","confidence":"tour","source_url":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","source_note":"Setlist from Downsview Park, Toronto, ON, Jul 12, 2013","spotify":"https://open.spotify.com/track/2oq2dbjW3sxOY0BscMWd7Q","spotify_label":"Passion Pit - I'll Be Alright","youtube":"https://www.youtube.com/watch?v=6Bmg3h7RSM4","youtube_label":"Passion Pit - I'll Be Alright (Genero.tv Competition Winner)","len":"4:22","yr":"2012","chk":"ok"},{"n":7,"artist":"Passion Pit","title":"Constant Conversations","confidence":"tour","source_url":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","source_note":"Setlist from Downsview Park, Toronto, ON, Jul 12, 2013","spotify":"https://open.spotify.com/track/3p9x4bK5bwmgXE6POMvOp0","spotify_label":"Passion Pit - Constant Conversations","youtube":"https://www.youtube.com/watch?v=EBLuWKnKIn0","youtube_label":"Passion Pit - \"Constant Conversations\" (Official Music Video)","len":"3:55","yr":"2012","chk":"ok"},{"n":8,"artist":"Passion Pit","title":"Take a Walk","confidence":"tour","source_url":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","source_note":"Setlist from Downsview Park, Toronto, ON, Jul 12, 2013","spotify":"https://open.spotify.com/track/4Sfa7hdVkqlM8UW5LsSY3F","spotify_label":"Passion Pit - Take a Walk","youtube":"https://www.youtube.com/watch?v=dZX6Q-Bj_xg","youtube_label":"Passion Pit - Take a Walk (Official Video)","len":"4:24","yr":"2012","chk":"ok"},{"n":9,"artist":"Passion Pit","title":"Cry Like a Ghost","confidence":"tour","source_url":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","source_note":"Setlist from Downsview Park, Toronto, ON, Jul 12, 2013","youtube":"https://www.youtube.com/watch?v=i380DwcJxxM","youtube_label":"Passion Pit - \"Cry Like A Ghost\" (Official Video)","chk":"ok"},{"n":10,"artist":"Passion Pit","title":"Little Secrets","confidence":"tour","source_url":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","source_note":"Setlist from Downsview Park, Toronto, ON, Jul 12, 2013","spotify":"https://open.spotify.com/track/3kb38wezoUA8ki5jPYy3t5","spotify_label":"Passion Pit - Little Secrets","youtube":"https://www.youtube.com/watch?v=ScC_pi3PJ9k","youtube_label":"Passion Pit - Little Secrets","len":"3:58","yr":"2009","chk":"ok"},{"n":11,"artist":"Passion Pit","title":"Sleepyhead","confidence":"tour","source_url":"https://www.setlist.fm/setlist/passion-pit/2013/downsview-park-toronto-on-canada-1bd951c0.html","source_note":"Setlist from Downsview Park, Toronto, ON, Jul 12, 2013","spotify":"https://open.spotify.com/track/4prEPl61C8qZpeo3IkYSMl","spotify_label":"Passion Pit - Sleepyhead","youtube":"https://www.youtube.com/watch?v=T0RvPYRRRbE","youtube_label":"Passion Pit - Sleepyhead (Official Video)","len":"2:54","yr":"2009","chk":"ok"}]}]}}}</script>
+<script>
+(() => {
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const YEAR_KEYS = Object.keys(DATA.years).sort();
+const DAY_COLORS = {Fri:'var(--amber)', Sat:'var(--magenta)', Sun:'var(--cyan)', TBA:'var(--violet)'};
+const STAGES = {
+  'Main Stage':'var(--s-ranch)','Grove Stage':'var(--s-sherwood)','The Saloon':'var(--s-tripolee)','Unconfirmed':'var(--s-other)'
+};
+const TIERS = {
+  confirmed:{label:'Confirmed', c:'var(--t-confirmed)', d:'Documented for this exact Summer Set set (setlist, tracklist, or taper notes).'},
+  identified:{label:'Identified', c:'var(--t-identified)', d:'Picked out of a recording or video of this set (timestamps, comments, IDs).'},
+  tour:{label:'Same tour', c:'var(--t-tour)', d:'From the same act’s set a few weeks before or after. Very likely overlaps.'},
+  era:{label:'Era staple', c:'var(--t-era)', d:'A track from that year the act was known to be playing. An educated guess, not a record.'}
+};
+const $ = (s, el=document) => el.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store = { get(k,d){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):d }catch{ return d } }, set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)) }catch{} } };
+
+// minutes since noon-ish of the festival day, so 1am sorts after 11pm
+function mins(t){
+  const m = /^(\d{1,2}):(\d\d)\s*([ap])m$/i.exec((t||'').trim()); if(!m) return 9999;
+  let h = (+m[1]) % 12 + (m[3].toLowerCase()==='p' ? 12 : 0);
+  if (h < 9) h += 24;   // after-midnight sets belong to the same festival night
+  return h*60 + (+m[2]);
+}
+const norm = s => (s||'').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,' ').trim();
+
+// ---------- per-year slots: researched sets + the rest of the official schedule ----------
+const trackByKey = new Map();
+const YEARS = {};
+for (const y of YEAR_KEYS){
+  const Y = DATA.years[y];
+  const days = Y.days.map(d => ({...d, c: DAY_COLORS[d.k]}));
+  const sets = Y.sets.map((s,i) => ({...s, id:`${y}-s${i}`, kind:'set', year:y}));
+  const covered = new Set(sets.map(s => s.day+'|'+norm(s.sched||s.artist)));
+  const sched = Y.schedule.filter(x => !covered.has(x.day+'|'+norm(x.artist))).map((x,i) => ({...x, id:`${y}-x${i}`, kind:'mini', tracks:[]}));
+  const all = [...sets, ...sched].sort((a,b) => days.findIndex(d=>d.k===a.day) - days.findIndex(d=>d.k===b.day) || mins(a.start)-mins(b.start) || a.stage.localeCompare(b.stage));
+  sets.forEach(s => s.tracks.forEach((t,j) => { t.key = `${s.id}-${j}`; t.set = s; trackByKey.set(t.key, t); }));
+  YEARS[y] = {...Y, days, sets, all};
+}
+let sets, all, DAYS, YR;
+
+// ---------- state ----------
+const hashYear = (location.hash.match(/\d{4}/)||[])[0];
+const st = {
+  year: YEAR_KEYS.includes(hashYear) ? hashYear : (YEAR_KEYS.includes(store.get('ss.year')) ? store.get('ss.year') : YEAR_KEYS[YEAR_KEYS.length-1]),
+  day: store.get('ss.day','all'), q:'',
+  stages: new Set(store.get('ss.stages', Object.keys(STAGES))),
+  tiers: new Set(store.get('ss.tiers', Object.keys(TIERS))),
+  full: store.get('ss.full', false),
+  open: new Set(store.get('ss.open', [])),
+  mix: store.get('ss.mix', []).filter(k => trackByKey.has(k))
+};
+const save = () => { store.set('ss.year',st.year); store.set('ss.day',st.day); store.set('ss.stages',[...st.stages]); store.set('ss.tiers',[...st.tiers]); store.set('ss.full',st.full); store.set('ss.open',[...st.open]); store.set('ss.mix',st.mix); };
+
+// ---------- year switch: hero text, stats, day tabs, footer ----------
+function setYear(y){
+  st.year = y; YR = YEARS[y]; sets = YR.sets; all = YR.all; DAYS = YR.days;
+  document.body.dataset.year = y;
+  if (location.hash !== '#'+y) history.replaceState(null, '', '#'+y);
+  document.title = `Summer Set ${y} Revival`;
+  $('#kicker').textContent = `${YR.dates} · Somerset Amphitheater · Somerset, Wisconsin`;
+  $('#yearTxt').textContent = `${y} · Revival`;
+  $('#tagline').innerHTML = YR.tagline;
+  document.querySelectorAll('[data-yr]').forEach(b => b.setAttribute('aria-pressed', b.dataset.yr===y));
+  const T = sets.flatMap(s=>s.tracks);
+  $('#stats').innerHTML = [
+    [sets.length,'sets researched'],[T.length,'tracks'],[T.filter(t=>t.confidence==='confirmed'||t.confidence==='identified').length,'confirmed / identified'],
+    [T.filter(t=>t.spotify).length,'on Spotify'],[T.filter(t=>!t.spotify&&t.youtube).length,'on YouTube'],[YR.schedule.length,'schedule slots']
+  ].map(([n,l])=>`<span class="stat"><b>${n}</b>${l}</span>`).join('');
+  $('#days').innerHTML = [{k:'all',name:'All'}, ...DAYS].map(d=>`<button data-day="${d.k}" aria-pressed="${st.day===d.k}">${d.k==='all'?'All days':d.name.slice(0,3)}</button>`).join('');
+  $('#method').innerHTML = `<h5>How the ${y} page was built</h5><p>${YR.method} Tracks come from setlist.fm, 1001Tracklists (often through archived Wayback copies), MixesDB, taper archives on archive.org, festival recaps, and fan videos of the sets: their titles, descriptions and timestamped comments. Where no list exists for the Forest set itself, the same act's set from the same weeks fills in, and it is labeled. Listen links were matched automatically and spot-checked: Spotify when an exact match exists (including the right remix), otherwise YouTube, otherwise a search. Some links may be imperfect. Built ${esc(DATA.generated||'')}.</p>`;
+  const srcs = [...new Set([YR.schedule_source, ...sets.flatMap(s=>[s.notes_source, ...s.tracks.map(t=>t.source_url), ...(s.recordings||[]).map(r=>r.url)])].filter(u=>u&&/^https?:/.test(u)))].sort();
+  $('#srcs').innerHTML = srcs.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/,''))}</a>`).join('');
+}
+$('#legend').innerHTML = Object.entries(TIERS).map(([k,t])=>`<div><b><span class="tier" data-t="${k}">${t.label}</span></b>${t.d}</div>`).join('');
+
+function renderChips(){
+  $('#chips').innerHTML =
+    Object.entries(STAGES).map(([s,c])=>`<button class="chip" style="--c:${c}" data-stage="${esc(s)}" aria-pressed="${st.stages.has(s)}">${esc(s)}</button>`).join('') +
+    '<span class="sep"></span>' +
+    Object.entries(TIERS).map(([k,t])=>`<button class="chip" style="--c:${t.c}" data-tier="${k}" aria-pressed="${st.tiers.has(k)}">${t.label}</button>`).join('') +
+    `<span class="sep"></span><label><input type="checkbox" id="full" ${st.full?'checked':''}> Full schedule</label>`;
+}
+
+// ---------- rendering ----------
+const ICON = {
+  copy:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>',
+  star:'<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg>',
+  chev:'<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg>',
+  sp:'<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21zm4.8 15.2a.65.65 0 0 1-.9.2c-2.5-1.5-5.6-1.9-9.3-1a.65.65 0 1 1-.3-1.3c4-.9 7.5-.5 10.3 1.2.3.2.4.6.2.9zm1.3-2.9a.8.8 0 0 1-1.1.3c-2.8-1.7-7.1-2.2-10.5-1.2a.8.8 0 1 1-.5-1.6c3.8-1.2 8.6-.6 11.8 1.4.4.2.5.7.3 1.1zm.1-3c-3.4-2-9-2.2-12.2-1.2a1 1 0 1 1-.6-1.9c3.7-1.1 9.9-.9 13.8 1.4a1 1 0 0 1-1 1.7z"/></svg>',
+  yt:'<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z"/></svg>'
+};
+const openCount = () => sets.filter(s=>st.open.has(s.id)).length;
+const line = t => `${t.artist} - ${t.title}`;
+function listen(t){
+  if (t.spotify) return `<a class="listen sp" href="${esc(t.spotify)}" target="_blank" rel="noopener" title="${esc(t.spotify_label||'Open in Spotify')}">${ICON.sp}Spotify</a>`;
+  if (t.youtube) return `<a class="listen yt" href="${esc(t.youtube)}" target="_blank" rel="noopener" title="${esc(t.youtube_label||'Open on YouTube')}">${ICON.yt}YouTube</a>`;
+  const q = encodeURIComponent(`${t.artist} ${t.title}`);
+  return `<a class="listen q" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener" title="Not found on Spotify or YouTube automatically, so this searches YouTube">${ICON.yt}Search</a>`;
+}
+function coverage(s){
+  const n = s.tracks.length || 1;
+  return `<span class="cov" title="Confidence mix">${Object.keys(TIERS).map(k=>{const c=s.tracks.filter(t=>t.confidence===k).length; return c?`<i style="width:${c/n*100}%;background:${TIERS[k].c}"></i>`:''}).join('')}</span>`;
+}
+function matches(s, t){
+  if (!st.q) return true;
+  const q = norm(st.q);
+  return norm(s.artist).includes(q) || norm(s.genre).includes(q) || (t ? norm(t.artist+' '+t.title).includes(q) : s.tracks.some(t=>norm(t.artist+' '+t.title).includes(q)));
+}
+function visibleTracks(s){
+  const setHit = st.q && norm(s.artist).includes(norm(st.q));
+  return s.tracks.filter(t => st.tiers.has(t.confidence) && (setHit || matches(s,t)));
+}
+function setCard(s){
+  const sc = STAGES[s.stage] || 'var(--s-other)';
+  const vt = visibleTracks(s);
+  const open = st.open.has(s.id) || (st.q && vt.length && !norm(s.artist).includes(norm(st.q)));
+  const rows = vt.map(t => `<tr data-k="${t.key}">
+      <td class="num">${t.n ?? ''}</td>
+      <td class="ta">${esc(t.artist)}</td>
+      <td class="tt">${esc(t.title)}</td>
+      <td class="tier-c"><span class="tier" data-t="${t.confidence}" title="${esc(TIERS[t.confidence]?.d)}${t.source_note?' · '+esc(t.source_note):''}">${TIERS[t.confidence]?.label||t.confidence}</span>${t.source_url?`<a class="src" href="${esc(t.source_url)}" target="_blank" rel="noopener" title="${esc(t.source_note||'Source')}">src</a>`:''}${t.len||t.yr?`<span class="vchk ${t.chk||''}" title="${esc((t.chk==='ok'?'Verified: plausible length and release date':'Check')+(t.why&&t.why.length?' · '+t.why.join(' · '):''))}"><i>${t.chk==='warn'?'!':t.chk==='ok'?'✓':''}</i>${esc(t.len||'')}${t.yr?' · '+esc(t.yr):''}</span>`:''}</td>
+      <td class="act">${listen(t)} <button class="ib" data-copy title="Copy “Artist - Title”">${ICON.copy}</button><button class="ib ${st.mix.includes(t.key)?'on':''}" data-star title="Add to My Summer Mix">${ICON.star}</button></td>
+    </tr>`).join('');
+  return `<div class="slot" style="--sc:${sc}"><span class="when">${esc(s.start)}</span>
+    <article class="set ${open?'open':''}" data-id="${s.id}">
+      <div class="set-h" data-toggle>
+        <div><h3>${esc(s.artist)}</h3>
+          <div class="meta"><span class="stage">${esc(s.stage)}</span><span>${esc(s.start)} – ${esc(s.end)}</span>${s.genre?`<span class="genre">${esc(s.genre)}</span>`:''}</div></div>
+        <div class="right"><span class="rpt-chip" data-rptcount="${s.id}" hidden></span>${s.tracks.length?coverage(s):''}<span class="count">${s.tracks.length?`${vt.length===s.tracks.length?'':vt.length+'/'}${s.tracks.length} trk`:'no IDs'}</span>${ICON.chev}</div>
+      </div>
+      <div class="set-b">
+        ${s.notes?`<div class="note">${esc(s.notes)}${s.notes_source?` <a href="${esc(s.notes_source)}" target="_blank" rel="noopener">source</a>`:''}</div>`:''}
+        ${(s.recordings||[]).length?`<div class="recs">${s.recordings.map(r=>`<a class="rec" href="${esc(r.url)}" target="_blank" rel="noopener">▶ ${esc(r.label||'Recording')}</a>`).join('')}</div>`:''}
+        <div class="tools">${vt.length?`<button class="btn" data-copyset>Copy tracklist</button><button class="btn" data-copysetlinks>Copy with links</button><button class="btn" data-mixset>Add all to mix</button><span class="pl-wrap"><button class="btn hot" data-plmenu="set" data-id="${s.id}">Playlist ▾</button></span>`:''}<button class="btn sug" data-report="${s.id}">+ Add missing tracks</button></div>
+        ${vt.length?`<table class="tbl"><thead><tr><th>#</th><th>Artist</th><th>Track</th><th>Confidence</th><th></th></tr></thead><tbody>${rows}</tbody></table>`
+        :`<div class="empty">${s.tracks.length?'No tracks match the current filters.':'No track IDs have turned up for this set yet. If you were there or have a recording, use “Add missing tracks” above to fill the gap.'}</div>`}
+      </div>
+    </article></div>`;
+}
+function miniRow(x){
+  const sc = STAGES[x.stage] || 'var(--s-other)';
+  return `<div class="slot" style="--sc:${sc}"><span class="when">${esc(x.start)}</span><div class="mini"><b>${esc(x.artist)}</b><span class="stage">${esc(x.stage)}</span><span>${esc(x.start)} – ${esc(x.end)}</span></div></div>`;
+}
+function render(){
+  const out = [];
+  for (const d of DAYS){
+    if (st.day!=='all' && st.day!==d.k) continue;
+    const items = all.filter(x => x.day===d.k && (STAGES[x.stage] ? st.stages.has(x.stage) : true))
+      .filter(x => x.kind==='set' ? (matches(x) && (!st.q || visibleTracks(x).length || norm(x.artist).includes(norm(st.q))) && (st.tiers.size===4 || visibleTracks(x).length)) : (st.full && (!st.q || norm(x.artist).includes(norm(st.q)))));
+    if (!items.length) continue;
+    out.push(`<section class="day" id="day-${d.k}" style="--dc:${d.c}"><div class="day-h"><h2>${d.name}</h2><span class="sub">${d.date}, ${st.year} · ${d.sub}</span></div><div class="timeline">${items.map(x=>x.kind==='set'?setCard(x):miniRow(x)).join('')}</div></section>`);
+  }
+  $('#list').innerHTML = out.join('') || '<div class="none">Nothing in the forest matches that. Try clearing a filter.</div>';
+  document.querySelectorAll('#days button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.day===st.day));
+  $('#expand').textContent = openCount() >= sets.length ? 'Collapse all' : 'Expand all';
+  renderMix(); save();
+  if (typeof renderReportBadges === 'function') renderReportBadges();
+}
+
+// ---------- clipboard & toast ----------
+let toastT;
+function toast(m){ const el=$('#toast'); el.textContent=m; el.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),1600); }
+async function copy(text, msg){
+  try{ await navigator.clipboard.writeText(text); }
+  catch{ const ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy')}catch{} ta.remove(); }
+  toast(msg);
+}
+const link = t => t.spotify || t.youtube || '';
+const setText = (s, tracks, links) => `${s.artist} @ Summer Set ${s.year} (${s.day} ${s.start}, ${s.stage})\n` + tracks.map((t,i)=>`${String(t.n??i+1).padStart(2,'0')}. ${line(t)}${links&&link(t)?'  '+link(t):''}`).join('\n');
+
+// ---------- mix ----------
+function renderMix(){
+  $('#mixN').textContent = st.mix.length;
+  $('#mixList').innerHTML = st.mix.map(k=>trackByKey.get(k)).filter(Boolean).map(t=>`<li>${esc(line(t))}<small>EF ${t.set.year} · ${esc(t.set.artist)} · ${t.set.day} ${esc(t.set.start)} · ${esc(t.set.stage)}</small></li>`).join('') || '<li style="list-style:none;color:var(--dim);margin-left:-24px">Star tracks (★) to build your own Forest playlist. They stay saved in this browser.</li>';
+}
+function toggleMix(k){ const i=st.mix.indexOf(k); i<0?st.mix.push(k):st.mix.splice(i,1); }
+
+// ---------- playlists: YouTube (no sign-in + optional account save) and Spotify (account save + paste) ----------
+// Inserted into template.html by build.py. Uses: $, esc, store, toast, copy, sets, trackByKey, st, YR, visibleTracks.
+const ytId = u => (/[?&]v=([\w-]{11})/.exec(u || '') || [])[1] || null;
+const spId = u => ((u || '').split('/track/')[1] || '').split(/[?#]/)[0] || null;
+const chunk = (a, n) => a.reduce((o, x, i) => (i % n ? o[o.length - 1].push(x) : o.push([x]), o), []);
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const cleanTxt = (s, max) => String(s || '').replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, max);
+const pageUrl = () => location.origin + location.pathname;
+const loopbackOk = () => location.protocol === 'http:' && location.hostname === '127.0.0.1' || location.protocol === 'https:';
+
+// What a playlist is made of: a set (current filters apply) or the mix.
+function plSource(kind, id){
+  if (kind === 'mix'){
+    const tracks = st.mix.map(k => trackByKey.get(k)).filter(Boolean);
+    return {key:'mix', tracks, title:'Summer Set Revival · My Summer Mix', desc:`My Summer Mix: ${tracks.length} tracks starred from the Summer Set 2013/2014 revival tracklists.`};
+  }
+  const s = Object.values(YEARS).flatMap(Y => Y.sets).find(x => x.id === id);
+  if (!s) return {key:id, tracks:[], title:'', desc:''};
+  const tracks = visibleTracks(s);
+  const tiers = [...new Set(tracks.map(t => t.confidence))].join('/');
+  return {key: s.id, tracks,
+    title: `EF${s.year} · ${s.artist} · ${s.day} ${s.start} ${s.stage}`,
+    desc: `${s.artist} at Summer Set ${s.year} (${s.day} ${s.start}, ${s.stage}). Reconstructed tracklist in set order. Confidence: ${tiers}. Built with the Summer Set Revival page.`};
+}
+
+// ---------- YouTube, no sign-in: watch_videos turns up to 50 video IDs into a temporary playlist ----------
+function ytParts(tracks){ return chunk(tracks.map(t => ytId(t.youtube)).filter(Boolean), 50); }
+function openYtPart(ids){ window.open('https://www.youtube.com/watch_videos?video_ids=' + ids.join(','), '_blank', 'noopener'); }
+
+// ---------- YouTube Data API (optional): a real playlist in the user's account ----------
+const YT = {
+  cid: () => store.get('ss.yt.cid', ''), token: null, exp: 0,
+  loadGis(){
+    if (window.google?.accounts?.oauth2) return Promise.resolve();
+    return new Promise((res, rej) => { const s = document.createElement('script'); s.src = 'https://accounts.google.com/gsi/client'; s.onload = res; s.onerror = () => rej(new Error('Could not load Google sign-in')); document.head.appendChild(s); });
+  },
+  async auth(force){
+    if (!force && this.token && Date.now() < this.exp - 60e3) return;
+    if (!this.cid()) throw new Error('Add your Google OAuth client ID first (Playlist settings).');
+    await this.loadGis();
+    await new Promise((res, rej) => {
+      const c = google.accounts.oauth2.initTokenClient({client_id: this.cid(), scope: 'https://www.googleapis.com/auth/youtube',
+        callback: r => r.error ? rej(new Error(r.error_description || r.error)) : (this.token = r.access_token, this.exp = Date.now() + r.expires_in * 1000, res()),
+        error_callback: e => rej(new Error(e.message || e.type || 'Google sign-in was closed'))});
+      c.requestAccessToken({prompt: this.token ? '' : 'consent'});
+    });
+  },
+  async api(method, path, params, body, retry = 0){
+    await this.auth();
+    const r = await fetch(`https://www.googleapis.com/youtube/v3/${path}?${new URLSearchParams(params)}`, {method, headers:{Authorization:'Bearer ' + this.token, 'Content-Type':'application/json'}, body: body && JSON.stringify(body)});
+    if (r.ok) return r.status === 204 ? {} : r.json();
+    const j = await r.json().catch(() => ({})); const reason = j.error?.errors?.[0]?.reason || '';
+    if (r.status === 401 && retry < 1){ this.token = null; await this.auth(true); return this.api(method, path, params, body, retry + 1); }
+    if (/quotaExceeded|dailyLimitExceeded|rateLimitExceeded/.test(reason)) throw Object.assign(new Error('quota'), {quota: true});
+    if ((r.status === 409 || r.status >= 500) && retry < 4){ await sleep(1500 * 2 ** retry); return this.api(method, path, params, body, retry + 1); }
+    throw Object.assign(new Error(j.error?.message || `YouTube error ${r.status}`), {status: r.status, reason});
+  },
+  async save(src, progress){
+    const ids = src.tracks.map(t => ytId(t.youtube)).filter(Boolean);
+    if (!ids.length) throw new Error('None of these tracks has a YouTube link.');
+    const map = store.get('ss.yt.pl', {}); let pid = map[src.key];
+    if (pid){ const r = await this.api('GET', 'playlists', {part:'id', id:pid}); if (!r.items?.length) pid = null; }   // deleted on YouTube: make a new one
+    if (!pid){
+      const p = await this.api('POST', 'playlists', {part:'snippet,status'}, {snippet:{title:cleanTxt(src.title, 150), description:cleanTxt(src.desc, 4900)}, status:{privacyStatus:'private'}});
+      pid = p.id; map[src.key] = pid; store.set('ss.yt.pl', map);
+    }
+    const have = new Set(); let page = '';
+    do { const r = await this.api('GET', 'playlistItems', {part:'contentDetails', playlistId:pid, maxResults:50, ...(page && {pageToken:page})});
+         (r.items || []).forEach(i => have.add(i.contentDetails.videoId)); page = r.nextPageToken || ''; } while (page);
+    const todo = ids.filter(v => !have.has(v)); let done = 0, skipped = 0;
+    for (const v of todo){
+      try { await this.api('POST', 'playlistItems', {part:'snippet'}, {snippet:{playlistId:pid, resourceId:{kind:'youtube#video', videoId:v}}}); done++; }
+      catch (e){ if (e.quota) throw Object.assign(new Error(`YouTube's daily API quota ran out after adding ${done} of ${todo.length} tracks. Click "Save to my YouTube" again tomorrow and it resumes where it stopped.`), {pid}); if (e.status === 404 || e.status === 403) { skipped++; continue; } throw e; }
+      progress(`${done + (ids.length - todo.length)}/${ids.length}`);
+    }
+    return {pid, added: done, already: ids.length - todo.length, skipped};
+  }
+};
+
+// ---------- Spotify Web API (optional): Authorization Code + PKCE, no client secret ----------
+const SP = {
+  cid: () => store.get('ss.sp.cid', ''),
+  b64: buf => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''),
+  async login(action){
+    if (!this.cid()) throw new Error('Add your Spotify client ID first (Playlist settings).');
+    if (!loopbackOk()) throw new Error(`Spotify sign-in only works when the page is opened at http://127.0.0.1:8613/ (run the local server). This page is at ${location.origin}.`);
+    const verifier = this.b64(crypto.getRandomValues(new Uint8Array(48)));
+    const challenge = this.b64(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier)));
+    const state = this.b64(crypto.getRandomValues(new Uint8Array(12)));
+    store.set('ss.sp.pending', {verifier, state, action, hash: location.hash});
+    location.assign('https://accounts.spotify.com/authorize?' + new URLSearchParams({client_id:this.cid(), response_type:'code', redirect_uri:pageUrl(),
+      code_challenge_method:'S256', code_challenge:challenge, state, scope:'playlist-modify-private playlist-modify-public'}));
+  },
+  async tokenReq(params){
+    const r = await fetch('https://accounts.spotify.com/api/token', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:new URLSearchParams({client_id:this.cid(), ...params})});
+    const j = await r.json(); if (!r.ok) throw new Error(j.error_description || j.error || 'Spotify sign-in failed');
+    const old = store.get('ss.sp.tok', {});
+    store.set('ss.sp.tok', {access:j.access_token, refresh:j.refresh_token || old.refresh, exp:Date.now() + j.expires_in * 1000});
+  },
+  async handleRedirect(){   // called on load: finish sign-in if Spotify sent us back with ?code=
+    const q = new URLSearchParams(location.search), p = store.get('ss.sp.pending', null);
+    if (!p || !(q.get('code') || q.get('error'))) return null;
+    store.set('ss.sp.pending', null);
+    history.replaceState(null, '', pageUrl() + (p.hash || ''));
+    if (q.get('error') || q.get('state') !== p.state) { toast('Spotify sign-in was cancelled'); return null; }
+    await this.tokenReq({grant_type:'authorization_code', code:q.get('code'), redirect_uri:pageUrl(), code_verifier:p.verifier});
+    return p.action;
+  },
+  async token(){
+    const t = store.get('ss.sp.tok', null);
+    if (!t) return null;
+    if (Date.now() > t.exp - 60e3){ try { await this.tokenReq({grant_type:'refresh_token', refresh_token:t.refresh}); } catch { store.set('ss.sp.tok', null); return null; } }
+    return store.get('ss.sp.tok').access;
+  },
+  async api(method, path, body, retry = 0){
+    const tok = await this.token(); if (!tok) throw Object.assign(new Error('not signed in'), {login:true});
+    const r = await fetch('https://api.spotify.com/v1' + path, {method, headers:{Authorization:'Bearer ' + tok, 'Content-Type':'application/json'}, body: body && JSON.stringify(body)});
+    if (r.status === 429 && retry < 5){ await sleep((+r.headers.get('Retry-After') || 2) * 1000 + 250); return this.api(method, path, body, retry + 1); }
+    if (r.status === 401 && retry < 1){ const t = store.get('ss.sp.tok', {}); store.set('ss.sp.tok', {...t, exp:0}); return this.api(method, path, body, retry + 1); }
+    if (r.status >= 500 && retry < 3){ await sleep(1000 * 2 ** retry); return this.api(method, path, body, retry + 1); }
+    const j = r.status === 204 ? {} : await r.json().catch(() => ({}));
+    if (!r.ok) throw Object.assign(new Error(j.error?.message || `Spotify error ${r.status}`), {status:r.status});
+    return j;
+  },
+  async save(src, progress){
+    const uris = src.tracks.map(t => spId(t.spotify)).filter(Boolean).map(id => 'spotify:track:' + id);
+    if (!uris.length) throw new Error('None of these tracks has a Spotify link.');
+    const map = store.get('ss.sp.pl', {}); let pid = map[src.key];
+    if (pid){ try { const p = await this.api('GET', `/playlists/${pid}?fields=id,owner(id)`); const me = await this.api('GET', '/me'); if (p.owner?.id !== me.id) pid = null; } catch { pid = null; } }
+    if (!pid){
+      const p = await this.api('POST', '/me/playlists', {name:cleanTxt(src.title, 100), description:cleanTxt(src.desc, 300), public:false});
+      pid = p.id; map[src.key] = pid; store.set('ss.sp.pl', map);
+    }
+    const parts = chunk(uris, 100);   // replace, so re-saving updates instead of duplicating
+    await this.api('PUT', `/playlists/${pid}/tracks`, {uris: parts[0]}); progress(`${parts[0].length}/${uris.length}`);
+    for (const p of parts.slice(1)){ await this.api('POST', `/playlists/${pid}/tracks`, {uris:p}); progress(`${Math.min(uris.length, parts.indexOf(p) * 100 + p.length)}/${uris.length}`); }
+    return {pid, count: uris.length};
+  }
+};
+
+// ---------- menu + actions ----------
+function plMenuHtml(kind, id){
+  const src = plSource(kind, id), parts = ytParts(src.tracks);
+  const nYt = parts.flat().length, nSp = src.tracks.filter(t => spId(t.spotify)).length, n = src.tracks.length;
+  const ytBtns = parts.length ? parts.map((p, i) => `<a class="pl-a" href="https://www.youtube.com/watch_videos?video_ids=${p.join(',')}" target="_blank" rel="noopener">▶ Play on YouTube now${parts.length > 1 ? ` · part ${i + 1}/${parts.length}` : ''} <small>${p.length} videos, no sign-in</small></a>`).join('') : '<div class="pl-note">No YouTube links for these tracks.</div>';
+  const local = loopbackOk();
+  return `<div class="pl-menu" data-kind="${kind}" data-id="${esc(id || '')}">
+    <div class="pl-head">${n} tracks${kind === 'set' ? ' shown (filters apply)' : ''} · ${nYt} on YouTube · ${nSp} on Spotify</div>
+    ${ytBtns}
+    ${local ? `<button data-pl="yt-save" ${nYt ? '' : 'disabled'}>Save to my YouTube <small>private playlist · sign-in · resumes if quota runs out</small></button>
+    <button data-pl="sp-save" ${nSp ? '' : 'disabled'}>Save to my Spotify <small>private playlist · sign-in · re-saving updates it</small></button>` : '<div class="pl-note">Saving straight into your YouTube or Spotify account works in the local copy of this page. Here, copy the links below.</div>'}
+    <button data-pl="sp-copy" ${nSp ? '' : 'disabled'}>Copy Spotify links <small>paste into a playlist in the Spotify app (Ctrl/Cmd+V)</small></button>
+    <button data-pl="yt-copy" ${nYt ? '' : 'disabled'}>Copy YouTube links</button>
+    ${local ? '<button data-pl="settings" class="pl-set">Playlist settings…</button>' : ''}
+  </div>`;
+}
+function progressBox(msg){ const el = $('#plProg'); el.textContent = msg; el.classList.add('show'); }
+function progressDone(){ setTimeout(() => $('#plProg').classList.remove('show'), 400); }
+// A message that stays until closed, with an optional link (alert() and window.open aren't available everywhere).
+function notice(msg, href, label){
+  const el = $('#plProg');
+  el.innerHTML = `${esc(msg)}${href ? ` <a href="${esc(href)}" target="_blank" rel="noopener">${esc(label || 'Open')}</a>` : ''}<button class="x" aria-label="Close">✕</button>`;
+  el.classList.add('show'); el.querySelector('.x').onclick = () => el.classList.remove('show');
+}
+
+async function plAction(act, kind, id, part){
+  const src = plSource(kind, id);
+  try {
+    if (act === 'yt-copy') return copy(src.tracks.filter(t => ytId(t.youtube)).map(t => t.youtube).join('\n'), 'YouTube links copied');
+    if (act === 'sp-copy') return copy(src.tracks.map(t => spId(t.spotify)).filter(Boolean).map(i => 'https://open.spotify.com/track/' + i).join('\n'), 'Spotify links copied. Paste them into a playlist in the Spotify app');
+    if (act === 'settings') return openSettings();
+    if (act === 'yt-save'){
+      if (!YT.cid()) return openSettings('yt');
+      const n = ytParts(src.tracks).flat().length;
+      progressBox(`Saving to YouTube… (about ${50 + 50 * n} of the free 10,000 daily API units)`);
+      const r = await YT.save(src, p => progressBox(`Saving to YouTube… ${p}`));
+      notice(`YouTube playlist ready: ${r.added} added${r.already ? `, ${r.already} already there` : ''}${r.skipped ? `, ${r.skipped} unavailable` : ''}.`, 'https://www.youtube.com/playlist?list=' + r.pid, 'Open playlist');
+    }
+    if (act === 'sp-save'){
+      if (!SP.cid()) return openSettings('sp');
+      if (!(await SP.token())) return SP.login({act, kind, id});
+      progressBox('Saving to Spotify…');
+      const r = await SP.save(src, p => progressBox(`Saving to Spotify… ${p}`));
+      notice(`Spotify playlist ready (${r.count} tracks).`, 'https://open.spotify.com/playlist/' + r.pid, 'Open playlist');
+    }
+  } catch (e){
+    progressDone();
+    if (e.login) return SP.login({act, kind, id}).catch(x => notice(x.message));
+    notice(e.message, e.pid ? 'https://www.youtube.com/playlist?list=' + e.pid : null, 'Playlist so far');
+  }
+}
+
+function openSettings(focus){
+  const d = $('#plSettings');
+  d.querySelector('#spCid').value = SP.cid(); d.querySelector('#ytCid').value = YT.cid();
+  d.querySelector('#spRedirect').textContent = loopbackOk() ? pageUrl() : 'http://127.0.0.1:8613/';
+  d.querySelector('#ytOrigin').textContent = loopbackOk() ? location.origin : 'http://127.0.0.1:8613';
+  d.querySelector('#plWarn').hidden = loopbackOk();
+  d.querySelector('#spState').textContent = store.get('ss.sp.tok', null) ? 'signed in' : 'not signed in';
+  d.showModal(); if (focus) d.querySelector(focus === 'sp' ? '#spCid' : '#ytCid').focus();
+}
+function initPlaylists(){
+  $('#plSave').onclick = () => { store.set('ss.sp.cid', $('#spCid').value.trim()); store.set('ss.yt.cid', $('#ytCid').value.trim()); $('#plSettings').close(); toast('Playlist settings saved'); };
+  $('#spOut').onclick = () => { store.set('ss.sp.tok', null); $('#spState').textContent = 'not signed in'; };
+  $('#plClose').onclick = () => $('#plSettings').close();
+  document.addEventListener('click', e => {
+    const open = e.target.closest('[data-plmenu]');
+    const tag = open ? open.dataset.plmenu + ':' + open.dataset.id : null;
+    let wasOpen = false;
+    document.querySelectorAll('.pl-pop').forEach(p => { if (p.contains(e.target)) return; if (p.dataset.for === tag) wasOpen = true; p.remove(); });
+    if (open){
+      if (wasOpen) return;   // second click on the same button closes it
+      const pop = document.createElement('div'); pop.className = 'pl-pop'; pop.dataset.for = tag;
+      pop.innerHTML = plMenuHtml(open.dataset.plmenu, open.dataset.id);
+      // phones: a bottom sheet on document.body (a card's backdrop-filter would trap position:fixed)
+      if (matchMedia('(max-width:720px)').matches) document.body.appendChild(pop);
+      else {   // open upward when the menu would run past the bottom of the window
+        open.after(pop);
+        const r = pop.getBoundingClientRect(), above = open.getBoundingClientRect().top;
+        if (r.bottom > innerHeight - 8 && above > r.height + 16) pop.classList.add('up');
+        else if (r.bottom > innerHeight - 8) pop.scrollIntoView({block:'nearest', behavior:'smooth'});
+      }
+      return;
+    }
+    const b = e.target.closest('.pl-menu [data-pl]');
+    if (b){ const m = b.closest('.pl-menu'); b.closest('.pl-pop')?.remove(); plAction(b.dataset.pl, m.dataset.kind, m.dataset.id, b.dataset.part); }
+  });
+  SP.handleRedirect().then(a => a && plAction(a.act, a.kind, a.id)).catch(e => notice('Spotify sign-in failed: ' + e.message));
+}
+
+// ---------- "Add missing tracks": the reporter ----------
+// Inserted into template.html by build.py. Uses: $, esc, toast, copy, sets, YEARS, st, STAGES, TIERS.
+// Where a report goes:
+//   * claude.ai artifact (has the `db` capability): saved in-page to reports/<viewer id>, reviewed in "Review suggestions".
+//   * anywhere else (GitHub Pages, local file): "Send on GitHub" opens a pre-filled issue on GH_REPO; the
+//     Missing Tracks page (missing.html) lists those issues. The issue body carries the report as JSON in an
+//     HTML comment (<!-- ef-report ... -->) so missing.html can file it under the right set.
+const GH_REPO = 'JunkfoodJon/EF2013Revival';
+const RPT = {db:null, user:null, me:null, canWrite:null, isReviewer:false, reports:[], review:{}, set:null};
+const setKey = s => `${s.year}|${s.day}|${s.stage}|${s.artist}`;
+const KINDS = {missing:'Missing track(s)', wrong:'Wrong track listed', order:'Wrong order', set:'Missing set / act', other:'Something else'};
+const EVIDENCE = {there:'I was there', recording:'Recording / video of the set', tracklist:'Tracklist site', other:'Other'};
+const DAYNAME = {Thu:'Thursday', Fri:'Friday', Sat:'Saturday', Sun:'Sunday'};
+const allSets = () => Object.values(YEARS).flatMap(Y => Y.sets);
+const inArtifact = () => !!window.claude?.use;
+
+async function initReports(){
+  if (!inArtifact()) return;
+  const [db, user] = await Promise.all([window.claude.use('db'), window.claude.use('user')]);
+  if (!db) return;
+  RPT.db = db; RPT.user = user;
+  RPT.me = user ? await user.id() : null;
+  RPT.canWrite = user ? await user.can('data.write') : null;
+  RPT.isReviewer = user ? (user.isOwner() || await user.canEdit()) : false;
+  $('#rptReview').hidden = !RPT.isReviewer;
+  db.collection('reports').onSnapshot(snap => {
+    RPT.reports = snap.docs.flatMap(d => ((d.data() || {}).items || []).map(it => ({...it, by: d.id})));
+    renderReportBadges(); if ($('#rptPanel').open) renderReview();
+  }, () => {});
+  db.collection('review').onSnapshot(snap => {
+    RPT.review = Object.fromEntries(snap.docs.map(d => [d.id, d.data()]));
+    renderReportBadges(); if ($('#rptPanel').open) renderReview();
+  }, () => {});
+}
+
+// "N suggestions" chip on set cards (artifact only; on GitHub Pages the Missing Tracks page lists them).
+function renderReportBadges(){
+  document.querySelectorAll('[data-rptcount]').forEach(el => {
+    const s = sets.find(x => x.id === el.dataset.rptcount); if (!s) return;
+    const open = RPT.reports.filter(r => r.setKey === setKey(s) && !['rejected','merged'].includes(RPT.review[`${r.by}-${r.id}`]?.status)).length;
+    el.textContent = open ? `${open} suggestion${open > 1 ? 's' : ''}` : ''; el.hidden = !open;
+  });
+}
+
+// ---------- the form ----------
+function openReport(setId){
+  const s = allSets().find(x => x.id === setId) || null;
+  RPT.set = s;
+  const d = $('#rptForm');
+  const sc = s ? (STAGES[s.stage] || 'var(--s-other)') : 'var(--lime)';
+  d.style.setProperty('--sc', sc);
+  $('#rptName').textContent = s ? s.artist : 'A set that isn’t listed';
+  $('#rptMeta').innerHTML = s
+    ? `<span class="rpt-stage">${esc(s.stage)}</span><span>${esc(DAYNAME[s.day] || s.day)} ${esc(s.start)} – ${esc(s.end)}</span><span class="rpt-yr">EF${esc(s.year)}</span>${s.genre ? `<span class="genre">${esc(s.genre)}</span>` : ''}`
+    : `<span class="rpt-yr">EF${esc(st.year)}</span><span>Tell us who played, when and where</span>`;
+  const have = s ? s.tracks : [];
+  $('#rptHave').hidden = !have.length;
+  $('#rptHaveSum').textContent = `Already listed: ${have.length} track${have.length === 1 ? '' : 's'}`;
+  $('#rptHaveList').innerHTML = have.map(t => `<li><span>${esc(t.artist)}</span> – ${esc(t.title)} <i class="tier" data-t="${t.confidence}">${esc(TIERS[t.confidence]?.label || '')}</i></li>`).join('');
+  $('#rptHave').open = false;
+  $('#rptKind').value = s ? 'missing' : 'set';
+  $('#rptEvidence').value = 'there';
+  ['rptTracks', 'rptUrl', 'rptMsg', 'rptArtist', 'rptWhen'].forEach(id => $('#' + id).value = '');
+  $('#rptArtistRow').hidden = !!s;
+  $('#rptErr').textContent = '';
+  $('#rptCount').textContent = '';
+  const shared = !!RPT.db, blocked = shared && RPT.canWrite === false;
+  $('#rptSend').hidden = !shared || blocked;
+  $('#rptGh').hidden = shared;
+  $('#rptMode').textContent = shared
+    ? (blocked ? 'Your access level can read suggestions but not send them. Use "Copy report" and send it to the page owner.' : 'Your suggestion is saved with this page for review.')
+    : 'Send on GitHub opens a pre-filled report in a new tab. Click Submit there (a free GitHub account is needed) and it appears on the Missing Tracks page.';
+  d.showModal();
+  (s ? $('#rptTracks') : $('#rptArtist')).focus();
+}
+
+// "12. Artist - Title", "Artist – Title", "Title" ; positions 1-999
+function parseTracks(txt){
+  return txt.split(/\r?\n/).map(l => l.trim()).filter(Boolean).slice(0, 60).map(l => {
+    const m = /^(?:#?(\d{1,3})\s*[.):-]?\s+)?(.+)$/.exec(l), body = m[2].trim();
+    const pos = m[1] ? +m[1] : null;
+    const sp = /^(.+?)\s+[-–—]\s+(.+)$/.exec(body);
+    return sp ? {pos, artist: sp[1].slice(0, 120), title: sp[2].slice(0, 200)} : {pos, artist: '', title: body.slice(0, 200)};
+  });
+}
+
+function collectReport(){
+  const s = RPT.set;
+  const tracks = parseTracks($('#rptTracks').value);
+  const msg = $('#rptMsg').value.trim().slice(0, 2000), url = $('#rptUrl').value.trim().slice(0, 500);
+  const who = $('#rptArtist').value.trim().slice(0, 120), when = $('#rptWhen').value.trim().slice(0, 120);
+  if (!s && !who) return {error: 'Add who played, so the report can be filed under the right set.', focus: 'rptArtist'};
+  if (!tracks.length && !msg) return {error: 'Add at least one track, or a short note about what’s missing.', focus: 'rptTracks'};
+  if (url && !/^https?:\/\/\S+$/i.test(url)) return {error: 'The source link should be a full address starting with https://', focus: 'rptUrl'};
+  return {v: 1, id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), at: new Date().toISOString(),
+    year: s ? String(s.year) : String(st.year), setKey: s ? setKey(s) : `${st.year}|?|?|${who}`,
+    artist: s ? s.artist : who, day: s?.day || '', stage: s?.stage || '', start: s?.start || '', when: s ? '' : when,
+    kind: $('#rptKind').value, evidence: $('#rptEvidence').value, url, tracks, message: msg};
+}
+const trackLine = t => `${t.pos ? t.pos + '. ' : ''}${t.artist ? t.artist + ' - ' : ''}${t.title}`;
+const reportText = r => [`Summer Set ${r.year} · ${r.artist || 'unknown act'}${r.day ? ` (${r.day} ${r.start}, ${r.stage})` : r.when ? ` (${r.when})` : ''}`,
+  `${KINDS[r.kind]} · source: ${EVIDENCE[r.evidence]}${r.url ? ' · ' + r.url : ''}`,
+  ...r.tracks.map(trackLine), r.message && `Note: ${r.message}`].filter(Boolean).join('\n');
+
+function issueUrl(r){
+  const title = `[Missing tracks] EF${r.year} · ${r.artist}${r.day ? ` · ${r.day} ${r.stage}` : ''}`;
+  const human = (tr, note) => [
+    `**Set:** ${r.artist} · Summer Set ${r.year}${r.day ? ` · ${r.day} ${r.start} · ${r.stage}` : r.when ? ` · ${r.when}` : ''}`,
+    `**What:** ${KINDS[r.kind]} · **How I know:** ${EVIDENCE[r.evidence]}${r.url ? `\n**Source:** ${r.url}` : ''}`,
+    tr.length ? `\n**Tracks**\n${tr.map(t => '- ' + trackLine(t)).join('\n')}` : '',
+    note ? `\n**Note:** ${note}` : '',
+    '\n_Sent from the Summer Set Revival page. Please keep the line below so the report is filed under the right set._',
+    `<!-- ef-report ${JSON.stringify({...r, tracks: tr, message: note}).replace(/--/g, '––')} -->`].filter(Boolean).join('\n');
+  // GitHub drops very long pre-filled URLs; trim the track list until it fits.
+  let tr = r.tracks, note = r.message, url;
+  for (;;) {
+    url = `https://github.com/${GH_REPO}/issues/new?` + new URLSearchParams({title: title.slice(0, 240), body: human(tr, note)});
+    if (url.length <= 7600 || (!tr.length && !note)) break;
+    if (tr.length) tr = tr.slice(0, Math.max(0, tr.length - 5)); else note = note.slice(0, Math.floor(note.length * 0.7));
+  }
+  return {url, trimmed: tr.length < r.tracks.length || note !== r.message};
+}
+
+async function sendReport(){
+  const r = collectReport(); if (r.error) return showErr(r);
+  showErr(null); $('#rptSend').disabled = true;
+  try {
+    const ref = RPT.db.doc('reports/' + RPT.me);
+    const cur = await ref.get();
+    const items = [...(((cur.exists && cur.data().items) || []).slice(-199)), r];   // each person's document stays bounded
+    await ref.set({items, updated: r.at});
+    $('#rptForm').close(); toast('Thanks! Your suggestion was saved for review');
+  } catch (e){
+    showErr({error: e.code === 'invalid_argument' ? 'Your access level can’t save suggestions here. Use "Copy report" instead.'
+      : e.code === 'quota_exceeded' ? 'The suggestion box is full. Use "Copy report" and send it to the page owner.'
+      : 'Couldn’t save just now. Try again in a moment, or use "Copy report".'});
+  } finally { $('#rptSend').disabled = false; }
+}
+function showErr(r){
+  $('#rptErr').textContent = r ? r.error : '';
+  if (r?.focus) $('#' + r.focus).focus();
+}
+
+// ---------- reviewer panel (artifact only: owner / editors) ----------
+async function renderReview(){
+  const filt = $('#rvFilter').value, yr = $('#rvYear').value;
+  const rows = RPT.reports.map(r => ({...r, rv: RPT.review[`${r.by}-${r.id}`] || {status:'new'}}))
+    .filter(r => (filt === 'all' || r.rv.status === filt) && (yr === 'all' || String(r.year) === yr))
+    .sort((a, b) => a.setKey.localeCompare(b.setKey) || b.at.localeCompare(a.at));
+  let names = {};
+  try { names = RPT.user?.profiles ? await RPT.user.profiles([...new Set(rows.map(r => r.by))]) : {}; } catch {}
+  const counts = ['new','accepted','merged','rejected'].map(k => `${k} ${RPT.reports.filter(r => (RPT.review[`${r.by}-${r.id}`]?.status || 'new') === k).length}`).join(' · ');
+  $('#rvCounts').textContent = `${RPT.reports.length} suggestions · ${counts}`;
+  let last = '';
+  $('#rvList').innerHTML = rows.map(r => {
+    const head = r.setKey !== last ? `<h6>${esc(r.artist || 'Unknown act')} <span>EF${esc(r.year)}${r.day ? ` · ${esc(r.day)} · ${esc(r.stage)}` : ''}</span></h6>` : '';
+    last = r.setKey;
+    return `${head}<div class="rv-item" data-rv="${esc(r.by)}-${esc(r.id)}">
+      <div class="rv-meta"><b>${esc(KINDS[r.kind] || r.kind)}</b> · ${esc(EVIDENCE[r.evidence] || '')} · ${esc((names[r.by]?.name) || 'Someone')} · ${esc(String(r.at).slice(0, 10))}${r.url ? ` · <a href="${esc(r.url)}" target="_blank" rel="noopener">source</a>` : ''}</div>
+      ${r.tracks?.length ? `<ol>${r.tracks.map(t => `<li>${t.pos ? `<span class="rv-pos">#${t.pos}</span> ` : ''}${esc(t.artist ? t.artist + ' - ' : '')}${esc(t.title)}</li>`).join('')}</ol>` : ''}
+      ${r.message ? `<p>${esc(r.message)}</p>` : ''}
+      <div class="rv-act"><select aria-label="Status">${['new','accepted','merged','rejected'].map(k => `<option ${r.rv.status === k ? 'selected' : ''}>${k}</option>`).join('')}</select>
+        <input placeholder="Review note" value="${esc(r.rv.note || '')}" aria-label="Review note"><button class="btn" data-rvsave>Save</button><button class="btn" data-rvcopy>Copy</button></div>
+    </div>`;
+  }).join('') || '<p class="rv-empty">No suggestions match. When listeners use "Add missing tracks" on a set, their suggestions appear here grouped by act.</p>';
+}
+
+function initReportUi(){
+  const form = $('#rptForm');
+  $('#rptCancel').onclick = () => form.close();
+  $('#rptSend').onclick = sendReport;
+  $('#rptCopy').onclick = () => { const r = collectReport(); if (r.error) return showErr(r); showErr(null); copy(reportText(r), 'Report copied'); };
+  $('#rptGh').onclick = e => {          // a real link (works where window.open is blocked); fill its href just in time
+    const r = collectReport();
+    if (r.error){ e.preventDefault(); return showErr(r); }
+    const {url, trimmed} = issueUrl(r);
+    e.currentTarget.href = url;
+    showErr(null);
+    setTimeout(() => { form.close(); toast(trimmed ? 'Opened GitHub. The list was long, so paste the rest there with "Copy report"' : 'Opened GitHub: click Submit there to send it'); }, 50);
+  };
+  form.addEventListener('click', e => { if (e.target === form) form.close(); });   // click on the backdrop
+  form.addEventListener('submit', e => e.preventDefault());
+  $('#rptTracks').addEventListener('input', () => { const n = parseTracks($('#rptTracks').value).length; $('#rptCount').textContent = n ? `${n} track${n > 1 ? 's' : ''}` : ''; });
+  $('#rptReview').onclick = () => { $('#rptPanel').showModal(); renderReview(); };
+  $('#rvClose').onclick = () => $('#rptPanel').close();
+  $('#rvFilter').onchange = $('#rvYear').onchange = renderReview;
+  $('#rvExport').onclick = () => {
+    const acc = RPT.reports.filter(r => RPT.review[`${r.by}-${r.id}`]?.status === 'accepted');
+    copy(JSON.stringify(acc.map(({by, ...r}) => r), null, 1), `Copied ${acc.length} accepted suggestions as JSON`);
+  };
+  $('#rvList').addEventListener('click', async e => {
+    const item = e.target.closest('[data-rv]'); if (!item) return;
+    const r = RPT.reports.find(x => `${x.by}-${x.id}` === item.dataset.rv);
+    if (e.target.closest('[data-rvcopy]')) return copy(reportText(r), 'Suggestion copied');
+    if (e.target.closest('[data-rvsave]')){
+      try { await RPT.db.doc('review/' + item.dataset.rv).set({status: item.querySelector('select').value, note: item.querySelector('input').value.slice(0, 500), at: new Date().toISOString()}); toast('Review saved'); }
+      catch { toast('Couldn’t save the review. Only the owner and editors can.'); }
+    }
+  });
+  document.addEventListener('click', e => { const b = e.target.closest('[data-report]'); if (b) openReport(b.dataset.report); });
+  $('#missingLink').hidden = inArtifact();   // the artifact keeps suggestions in-page instead
+  initReports().catch(() => {});
+}
+
+
+// ---------- events ----------
+document.addEventListener('click', e => {
+  const t = e.target;
+  const yb = t.closest('[data-yr]'); if (yb){ setYear(yb.dataset.yr); render(); return; }
+  const day = t.closest('[data-day]'); if (day){ st.day=day.dataset.day; render(); window.scrollTo({top:$('.bar').offsetTop,behavior:'smooth'}); return; }
+  const sg = t.closest('[data-stage]'); if (sg){ const s=sg.dataset.stage; st.stages.has(s)?st.stages.delete(s):st.stages.add(s); if(!st.stages.size) Object.keys(STAGES).forEach(x=>st.stages.add(x)); renderChips(); render(); return; }
+  const tr = t.closest('[data-tier]'); if (tr){ const k=tr.dataset.tier; st.tiers.has(k)?st.tiers.delete(k):st.tiers.add(k); if(!st.tiers.size) Object.keys(TIERS).forEach(x=>st.tiers.add(x)); renderChips(); render(); return; }
+  const card = t.closest('.set'); const s = card && sets.find(x=>x.id===card.dataset.id);
+  const row = t.closest('tr[data-k]'); const trk = row && trackByKey.get(row.dataset.k);
+  if (t.closest('[data-copy]') && trk) return copy(line(trk), 'Copied: '+line(trk));
+  if (t.closest('[data-star]') && trk){ toggleMix(trk.key); t.closest('[data-star]').classList.toggle('on'); renderMix(); save(); toast(st.mix.includes(trk.key)?'Added to your mix':'Removed from your mix'); return; }
+  if (t.closest('[data-copyset]') && s) return copy(setText(s, visibleTracks(s), false), `Copied ${s.artist} tracklist`);
+  if (t.closest('[data-copysetlinks]') && s) return copy(setText(s, visibleTracks(s), true), `Copied ${s.artist} tracklist + links`);
+  if (t.closest('[data-mixset]') && s){ visibleTracks(s).forEach(x=>{ if(!st.mix.includes(x.key)) st.mix.push(x.key) }); render(); toast('Set added to your mix'); return; }
+  if (t.closest('[data-toggle]') && s && !t.closest('a,button')){ st.open.has(s.id)?st.open.delete(s.id):st.open.add(s.id); card.classList.toggle('open'); save(); $('#expand').textContent = openCount()>=sets.length?'Collapse all':'Expand all'; return; }
+});
+$('#chips').addEventListener('change', e => { if (e.target.id==='full'){ st.full=e.target.checked; render(); } });
+let qT; $('#q').addEventListener('input', e => { clearTimeout(qT); qT=setTimeout(()=>{ st.q=e.target.value.trim(); render(); },120); });
+document.addEventListener('keydown', e => { if (e.key==='/' && document.activeElement!==$('#q')){ e.preventDefault(); $('#q').focus(); } if (e.key==='Escape'){ $('#drawer').classList.remove('open'); } });
+$('#expand').onclick = () => { if (openCount()>=sets.length) sets.forEach(s=>st.open.delete(s.id)); else sets.forEach(s=>st.open.add(s.id)); render(); };
+$('#copyAll').onclick = () => {
+  const blocks = [...document.querySelectorAll('.set')].map(c=>sets.find(x=>x.id===c.dataset.id)).filter(s=>visibleTracks(s).length).map(s=>setText(s, visibleTracks(s), false));
+  copy(blocks.join('\n\n'), `Copied ${blocks.length} tracklists`);
+};
+$('#mixBtn').onclick = () => $('#drawer').classList.toggle('open');
+$('#closeMix').onclick = () => $('#drawer').classList.remove('open');
+$('#mixClear').onclick = () => { st.mix=[]; render(); };
+const mixTracks = () => st.mix.map(k=>trackByKey.get(k)).filter(Boolean);
+$('#mixCopy').onclick = () => copy(mixTracks().map(line).join('\n'), 'Mix copied');
+$('#mixLinks').onclick = () => copy(mixTracks().map(t=>`${line(t)}${link(t)?'  '+link(t):''}`).join('\n'), 'Mix + links copied');
+
+renderChips(); setYear(st.year); render(); initPlaylists(); initReportUi();
+
+// ---------- forest treeline + string lights ----------
+(function trees(){
+  let d='M0 170 ', x=0; const rnd = (a,b)=>a+Math.random()*(b-a);
+  while (x < 1440){ const w=rnd(26,64), h=rnd(60,150), y=170-h; d+=`L${x} ${170-rnd(10,30)} L${x+w*.5} ${y} L${x+w} ${170-rnd(10,30)} `; x+=w*rnd(.55,.85); }
+  d += 'L1440 170 Z'; $('#trees').setAttribute('d', d);
+  const cols=['#3ef2ff','#ff3fd8','#b6ff3b','#ffb23e','#9b6bff'], g=$('#lights'); let html='';
+  for (let s=0;s<3;s++){ const y0=rnd(70,120); let pts=[]; for(let i=0;i<=24;i++){ const xx=i*60, yy=y0+Math.sin(i*1.3+s)*8+((i%2)?10:0); pts.push([xx,yy]); }
+    html += `<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1"/>`;
+    pts.forEach((p,i)=>{ html += `<circle cx="${p[0]}" cy="${p[1]+3}" r="2.6" fill="${cols[(i+s)%5]}"><animate attributeName="opacity" values="1;.25;1" dur="${rnd(1.6,4).toFixed(2)}s" repeatCount="indefinite" begin="${rnd(0,3).toFixed(2)}s"/></circle>`; });
+  }
+  g.innerHTML = html;
+})();
+
+// ---------- fireflies ----------
+(function flies(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const c=$('#flies'), x=c.getContext('2d'); let W,H,P=[];
+  const cols=['182,255,59','62,242,255','255,63,216','255,178,62','155,107,255'];
+  const size=()=>{ W=c.width=innerWidth*devicePixelRatio; H=c.height=innerHeight*devicePixelRatio; c.style.width=innerWidth+'px'; c.style.height=innerHeight+'px'; };
+  size(); addEventListener('resize', size);
+  for (let i=0;i<70;i++) P.push({x:Math.random(),y:Math.random(),r:Math.random()*1.8+.6,a:Math.random()*6.28,s:Math.random()*.0006+.0002,c:cols[i%5],p:Math.random()*6.28});
+  (function f(t){
+    x.clearRect(0,0,W,H);
+    for (const p of P){
+      p.a += (Math.random()-.5)*.25; p.x += Math.cos(p.a)*p.s; p.y += Math.sin(p.a)*p.s*.7;
+      if(p.x<0)p.x=1; if(p.x>1)p.x=0; if(p.y<0)p.y=1; if(p.y>1)p.y=0;
+      const al = .35+.65*Math.max(0,Math.sin(t/900+p.p)), R=p.r*devicePixelRatio;
+      const g=x.createRadialGradient(p.x*W,p.y*H,0,p.x*W,p.y*H,R*7); g.addColorStop(0,`rgba(${p.c},${al})`); g.addColorStop(1,`rgba(${p.c},0)`);
+      x.fillStyle=g; x.beginPath(); x.arc(p.x*W,p.y*H,R*7,0,6.283); x.fill();
+    }
+    requestAnimationFrame(f);
+  })(0);
+})();
+})();
+</script>
+</body>
+</html>
